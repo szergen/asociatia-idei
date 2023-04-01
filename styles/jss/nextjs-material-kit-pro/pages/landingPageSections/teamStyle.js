@@ -5,6 +5,8 @@ import {
 } from "/styles/jss/nextjs-material-kit-pro.js";
 import imagesStyle from "/styles/jss/nextjs-material-kit-pro/imagesStyles.js";
 
+const mobileBp = "@media (max-width: 720px)";
+
 const teamStyle = {
   section: {
     padding: "70px 0 0",
@@ -15,7 +17,7 @@ const teamStyle = {
     marginBottom: "1rem",
     marginTop: "30px",
     minHeight: "32px",
-    textDecoration: "none"
+    textDecoration: "none",
   },
   ...imagesStyle,
   itemGrid: {
@@ -47,6 +49,10 @@ const teamStyle = {
     margin: "5px"
   },
   card3: {
+    [mobileBp]: {
+      padding: "0 20px",
+      marginBottom: 0,
+    },
     textAlign: "center"
   }
 };

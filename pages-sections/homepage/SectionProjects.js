@@ -4,12 +4,12 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
-import Build from "@material-ui/icons/Build";
-import Subject from "@material-ui/icons/Subject";
+// import Build from "@material-ui/icons/Build";
+// import Subject from "@material-ui/icons/Subject";
 // core components
 import GridContainer from "/components/Grid/GridContainer.js";
 import GridItem from "/components/Grid/GridItem.js";
-import NavPills from "/components/NavPills/NavPills.js";
+// import NavPills from "/components/NavPills/NavPills.js";
 import Card from "/components/Card/Card.js";
 import CardBody from "/components/Card/CardBody.js";
 import Button from "/components/CustomButtons/Button.js";

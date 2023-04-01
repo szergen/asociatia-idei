@@ -38,12 +38,10 @@ export default function SectionTeam() {
               <GridContainer>
                 <GridItem xs={12} sm={5} md={5}>
                   <CardHeader image plain>
-                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
                       <img
                         src="/img/team/raluca.jpg"
-                        alt="..."
+                        alt="Pic Raluca"
                       />
-                    </a>
                     <div
                       className={classes.coloredShadow}
                       style={{
@@ -65,7 +63,7 @@ export default function SectionTeam() {
                       restart the human foundation in truth...
                     </p> */}
                   </CardBody>
-                  {/* <CardFooter plain className={classes.justifyContentCenter}>
+                  <CardFooter plain className={classes.justifyContentCenter}>
                     <Button justIcon simple color="twitter">
                       <i className="fab fa-twitter" />
                     </Button>
@@ -75,7 +73,7 @@ export default function SectionTeam() {
                     <Button justIcon simple color="google">
                       <i className="fab fa-google" />
                     </Button>
-                  </CardFooter> */}
+                  </CardFooter>
                 </GridItem>
               </GridContainer>
             </Card>
@@ -85,12 +83,10 @@ export default function SectionTeam() {
               <GridContainer>
                 <GridItem xs={12} sm={5} md={5}>
                   <CardHeader image plain>
-                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
                       <img
                         src="/img/team/right.jpg"
-                        alt="..."
+                        alt="Pic Cristina"
                       />
-                    </a>
                     <div
                       className={classes.coloredShadow}
                       style={{
@@ -105,14 +101,14 @@ export default function SectionTeam() {
                   <CardBody plain>
                     <h4 className={classes.cardTitle}>Cristina Chira</h4>
                     <Muted>
-                      <h6 className={classes.cardCategory}>CONTENT SPECIALIST</h6>
+                      <h6 className={classes.cardCategory}>SUSTAINABILITY EXPERT</h6>
                     </Muted>
                     {/* <p className={classes.description}>
                       Don{"'"}t be scared of the truth because we need to
                       restart the human foundation in truth...
                     </p> */}
                   </CardBody>
-                  {/* <CardFooter plain className={classes.justifyContentCenter}>
+                  <CardFooter plain className={classes.justifyContentCenter}>
                     <Button justIcon simple color="linkedin">
                       <i className="fab fa-linkedin-in" />
                     </Button>
@@ -125,7 +121,7 @@ export default function SectionTeam() {
                     <Button justIcon simple color="google">
                       <i className="fab fa-google" />
                     </Button>
-                  </CardFooter> */}
+                  </CardFooter>
                 </GridItem>
               </GridContainer>
             </Card>
@@ -135,12 +131,10 @@ export default function SectionTeam() {
               <GridContainer>
                 <GridItem xs={12} sm={5} md={5}>
                   <CardHeader image plain>
-                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
                       <img
                         src="/img/team/right.jpg"
-                        alt="..."
+                        alt="Pic Catalin"
                       />
-                    </a>
                     <div
                       className={classes.coloredShadow}
                       style={{
@@ -162,7 +156,7 @@ export default function SectionTeam() {
                       the truth.
                     </p> */}
                   </CardBody>
-                  {/* <CardFooter plain className={classes.justifyContentCenter}>
+                  <CardFooter plain className={classes.justifyContentCenter}>
                     <Button justIcon simple color="youtube">
                       <i className="fab fa-youtube" />
                     </Button>
@@ -172,7 +166,7 @@ export default function SectionTeam() {
                     <Button justIcon simple color="instagram">
                       <i className="fab fa-instagram" />
                     </Button>
-                  </CardFooter> */}
+                  </CardFooter>
                 </GridItem>
               </GridContainer>
             </Card>
@@ -182,12 +176,10 @@ export default function SectionTeam() {
               <GridContainer>
                 <GridItem xs={12} sm={5} md={5}>
                   <CardHeader image plain>
-                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
                       <img
                         src="/img/team/right.jpg"
-                        alt="..."
+                        alt="Pic Claudia"
                       />
-                    </a>
                     <div
                       className={classes.coloredShadow}
                       style={{
@@ -202,14 +194,14 @@ export default function SectionTeam() {
                   <CardBody plain>
                     <h4 className={classes.cardTitle}>Claudia Mihaela Calciu</h4>
                     <Muted>
-                      <h6 className={classes.cardCategory}>PROJECTS  SPECIALIST</h6>
+                      <h6 className={classes.cardCategory}>EU PROJECTS EXPERT</h6>
                     </Muted>
                     {/* <p className={classes.description}>
                       I love you like Kanye loves Kanye. Don{"'"}t be scared of
                       the truth.
                     </p> */}
                   </CardBody>
-                  {/* <CardFooter plain className={classes.justifyContentCenter}>
+                  <CardFooter plain className={classes.justifyContentCenter}>
                     <Button justIcon simple color="linkedin">
                       <i className="fab fa-linkedin-in" />
                     </Button>
@@ -219,7 +211,7 @@ export default function SectionTeam() {
                     <Button justIcon simple color="google">
                       <i className="fab fa-google" />
                     </Button>
-                  </CardFooter> */}
+                  </CardFooter>
                 </GridItem>
               </GridContainer>
             </Card>

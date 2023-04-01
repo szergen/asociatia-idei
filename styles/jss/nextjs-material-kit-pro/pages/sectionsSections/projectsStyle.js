@@ -11,6 +11,8 @@ import {
   hexToRgb
 } from "/styles/jss/nextjs-material-kit-pro.js";
 
+const mobileBp = "@media (max-width: 720px)";
+
 const projectsSection = {
   container,
   mlAuto,
@@ -23,6 +25,9 @@ const projectsSection = {
     textAlign: "center"
   },
   projects: {
+    [mobileBp]: {
+      padding: "0px"
+    },
     padding: "80px 0 0"
   },
   tabSpace: {

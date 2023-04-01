@@ -6,6 +6,8 @@ import {
   mainRaised
 } from "/styles/jss/nextjs-material-kit-pro.js";
 
+const mobileBp = '@media (max-width: 720px)';
+
 const homepageStyle = {
   container: {
     color: whiteColor,
@@ -13,6 +15,10 @@ const homepageStyle = {
     zIndex: "2"
   },
   title: {
+    [mobileBp]: {
+      fontSize: '2.5rem',
+      paddingRight: '10px',
+    },
     ...title,
     display: "inline-block",
     position: "relative",

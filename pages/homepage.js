@@ -1,6 +1,6 @@
 /*eslint-disable*/ import React from "react";
 // nodejs library to set properties for components
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 // @material-ui/icons
-import Favorite from "@material-ui/icons/Favorite";
+// import Favorite from "@material-ui/icons/Favorite";
 // core components
 import Header from "/components/Header/Header.js";
 import Footer from "/components/Footer/Footer.js";
@@ -25,8 +25,8 @@ import homepageStyle from "/styles/jss/nextjs-material-kit-pro/pages/homepageSty
 import SectionTeam from "/pages-sections/homepage/SectionTeam.js";
 import SectionProjects from '/pages-sections/homepage/SectionProjects.js';
 import SectionFutureEvents from '/pages-sections/homepage/SectionFutureEvents.js';
-import SectionPastEvents from '/pages-sections/homepage/SectionPastEvents.js';
-import SectionBlogPosts from '/pages-sections/homepage/SectionBlogPosts.js';
+// import SectionPastEvents from '/pages-sections/homepage/SectionPastEvents.js';
+// import SectionBlogPosts from '/pages-sections/homepage/SectionBlogPosts.js';
 import SectionContact from '/pages-sections/homepage/SectionContact.js';
 
 const useStyles = makeStyles(homepageStyle);

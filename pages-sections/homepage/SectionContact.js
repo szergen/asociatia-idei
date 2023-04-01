@@ -1,12 +1,12 @@
 import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
+// import Checkbox from "@material-ui/core/Checkbox";
+// import FormControlLabel from "@material-ui/core/FormControlLabel";
 // @material-ui/icons
 import PinDrop from "@material-ui/icons/PinDrop";
-import Phone from "@material-ui/icons/Phone";
-import Check from "@material-ui/icons/Check";
+// import Phone from "@material-ui/icons/Phone";
+// import Check from "@material-ui/icons/Check";
 // core components
 import GridContainer from "/components/Grid/GridContainer.js";
 import GridItem from "/components/Grid/GridItem.js";
@@ -60,7 +60,7 @@ export default function SectionContact({ ...rest }) {
               />
               
             </GridItem>
-            <GridItem xs={12} sm={5} md={5} className={classes.mlAuto}>
+            <GridItem xs={12} sm={6} md={6} className={classes.mlAuto}>
               <Card className={classes.card1}>
                 <form>
                   <CardHeader

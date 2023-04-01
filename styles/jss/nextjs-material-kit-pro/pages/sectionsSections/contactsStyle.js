@@ -11,6 +11,9 @@ import {
   hexToRgb
 } from "/styles/jss/nextjs-material-kit-pro.js";
 
+const mobileBp = '@media (max-width: 720px)';
+const tabletBp = "@media (max-width: 1280px)";
+
 import customCheckboxRadioSwitch from "/styles/jss/nextjs-material-kit-pro/customCheckboxRadioSwitchStyle.js";
 
 const contactsSection = {
@@ -27,7 +30,13 @@ const contactsSection = {
     "& $container": {
       padding: "0 100px",
       zIndex: "2",
-      position: "relative"
+      position: "relative",
+      [mobileBp]: {
+        padding: "0 15px",
+      },
+      [tabletBp]: {
+        padding: "0 30px",
+      },
     },
     "&:after": {
       position: "absolute",
@@ -49,6 +58,9 @@ const contactsSection = {
     "& $infoArea": {}
   },
   contacts: {
+    [mobileBp]: {
+      padding: "0",
+    },
     padding: "80px 0"
   },
   infoArea: {

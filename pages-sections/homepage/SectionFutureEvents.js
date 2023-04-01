@@ -2,7 +2,7 @@ import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
-import TrendingUp from "@material-ui/icons/TrendingUp";
+// import TrendingUp from "@material-ui/icons/TrendingUp";
 // core components
 import GridContainer from "/components/Grid/GridContainer.js";
 import GridItem from "/components/Grid/GridItem.js";
@@ -10,7 +10,7 @@ import Card from "/components/Card/Card.js";
 import CardBody from "/components/Card/CardBody.js";
 import CardHeader from "/components/Card/CardHeader.js";
 import Info from "/components/Typography/Info.js";
-import Danger from "/components/Typography/Danger.js";
+// import Danger from "/components/Typography/Danger.js";
 import Success from "/components/Typography/Success.js";
 
 import blogsStyle from "/styles/jss/nextjs-material-kit-pro/pages/sectionsSections/blogsStyle.js";
@@ -32,10 +32,10 @@ export default function SectionFutureEvents({ ...rest }) {
               className={classes.mlAuto + " " + classes.mrAuto}
             >
               <h2 className={classes.title}>Events & Activities</h2>
-              <br />
+              
               <GridContainer>
                 <GridItem xs={12} sm={4} md={4}>
-                  <Card plain blog>
+                  <Card plain blog className={classes.cardEvents}>
                     <CardHeader plain image>
                         <img src="/img/projects/yetti.jpg" alt="..." />
                       <div
@@ -62,7 +62,7 @@ export default function SectionFutureEvents({ ...rest }) {
                   </Card>
                 </GridItem>
                 <GridItem xs={12} sm={4} md={4}>
-                  <Card plain blog>
+                  <Card plain blog className={classes.cardEvents}>
                     <CardHeader plain image>
                         <img src="/img/projects/yetti.jpg" alt="..." />
                       <div
@@ -89,7 +89,7 @@ export default function SectionFutureEvents({ ...rest }) {
                   </Card>
                 </GridItem>
                 <GridItem xs={12} sm={4} md={4}>
-                  <Card plain blog>
+                  <Card plain blog className={classes.cardEvents}>
                     <CardHeader plain image>
                         <img src="/img/projects/fit2.jpg" alt="..." />
                       <div

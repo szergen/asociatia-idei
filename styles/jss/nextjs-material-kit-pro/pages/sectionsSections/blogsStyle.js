@@ -9,9 +9,10 @@ import {
   grayColor
 } from "/styles/jss/nextjs-material-kit-pro.js";
 
+const mobileBp = "@media (max-width: 720px)";
+
 const blogsSection = {
   container,
-  title,
   coloredShadow,
   cardTitle,
   mlAuto,
@@ -19,6 +20,15 @@ const blogsSection = {
   description,
   blog: {
     padding: "50px 0"
+  },
+  cardEvents: {
+    marginBottom: 0,
+  },
+  title: {
+    ...title,
+    textAlign: "center",
+      marginTop: 0,
+      marginBottom: 0,
   },
   cardCategory: {
     marginBottom: "0",
