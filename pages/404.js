@@ -2,6 +2,7 @@
 import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
+import Link from "next/link";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 // @material-ui/icons
@@ -26,11 +27,14 @@ export default function ErrorPage({ ...rest }) {
   return (
     <div>
       <Header
-        absolute
-        color="transparent"
-        brand="NextJS Material Kit PRO"
-        links={<HeaderLinks dropdownHoverColor="dark" />}
-        {...rest}
+         color="transparent"
+         logo="/img/logo-inverted.png"
+         links={<HeaderLinks dropdownHoverColor="info" />}
+         fixed
+         changeColorOnScroll={{
+           height: 200,
+           color: "idei"
+         }}
       />
       <div
         className={classes.pageHeader}
@@ -59,53 +63,34 @@ export default function ErrorPage({ ...rest }) {
           <div>
             <div className={classes.left}>
               <List className={classes.list}>
-                <ListItem className={classes.inlineBlock}>
-                  <a
-                    href="https://www.creative-tim.com/?ref=njsmkp-error"
-                    target="_blank"
-                    className={classes.block}
+              <ListItem className={classes.inlineBlock}>
+                  <Link
+                    href="/"
                   >
-                    Creative Tim
-                  </a>
+                    <span className={classes.block}>Asociatia IDEI</span>
+                  </Link>
+                </ListItem>
+                <ListItem className={classes.inlineBlock}>
+                  <Link
+                    href="/about-us"
+                    target="_blank"
+                  >
+                    <span className={classes.block}>About us</span>
+                  </Link>
                 </ListItem>
                 <ListItem className={classes.inlineBlock}>
                   <a
-                    href="https://www.creative-tim.com/presentation/?ref=njsmkp-error"
-                    target="_blank"
+                    href="/#:~:text=Get%20in-,Touch,-Hey%20there!%20If"
                     className={classes.block}
                   >
-                    About us
-                  </a>
-                </ListItem>
-                <ListItem className={classes.inlineBlock}>
-                  <a
-                    href="http://blog.creative-tim.com/?ref=njsmkp-error"
-                    className={classes.block}
-                  >
-                    Blog
-                  </a>
-                </ListItem>
-                <ListItem className={classes.inlineBlock}>
-                  <a
-                    href="https://www.creative-tim.com/license/?ref=njsmkp-error"
-                    target="_blank"
-                    className={classes.block}
-                  >
-                    Licenses
+                    Contact Us
                   </a>
                 </ListItem>
               </List>
             </div>
             <div className={classes.right}>
-              &copy; {1900 + new Date().getYear()} , made with{" "}
-              <Favorite className={classes.icon} /> by{" "}
-              <a
-                href="https://www.creative-tim.com/?ref=njsmkp-error"
-                target="_blank"
-              >
-                Creative Tim
-              </a>{" "}
-              for a better web.
+              &copy; {1900 + new Date().getYear()}&nbsp;
+              Asociatia IDEI - Initiative si Demersuri Educationale si Inovatoare
             </div>
           </div>
         }
