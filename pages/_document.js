@@ -1,12 +1,43 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 import { ServerStyleSheets } from "@material-ui/styles";
+
+const GA_TRACKING_ID = 'G-ZBS90CC0FP';
+
+// GA TAG Next.js component
+ const GATag = () => {
+  return (
+    <>
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+      />
+      <Script
+
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
+    </>
+  );
+};
+
 
 class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
+          {GATag()}
           <meta charSet="utf-8" />
           <meta name="theme-color" content="#000000" />
           <link rel="shortcut icon" href="/img/favicon.png" />

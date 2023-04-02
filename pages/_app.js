@@ -1,24 +1,9 @@
-/*!
-
-=========================================================
-* NextJS Material Kit PRO v1.2.1 based on Material Kit PRO - v2.0.2 (Bootstrap 4.0.0 Final Edition) and Material Kit PRO React v1.8.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/ct-nextjs-material-kit-pro
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
+import Script from "next/script";
 
 import PageChange from "/components/PageChange/PageChange.js";
 
@@ -49,19 +34,6 @@ export default class MyApp extends App {
   componentDidMount() {
     let comment = document.createComment(`
 
-=========================================================
-* NextJS Material Kit PRO v1.2.1 based on Material Kit PRO - v2.0.2 (Bootstrap 4.0.0 Final Edition) and Material Kit PRO React v1.8.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/nextjs-material-kit-pro
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
 `);
     document.insertBefore(comment, document.documentElement);
   }
@@ -84,7 +56,24 @@ export default class MyApp extends App {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE" />
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=G-ZBS90CC0FP`}
+      />
+      <Script
+
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ZBS90CC0FP', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
           <title>Asociatia IDEI</title>
         </Head>
         <Component {...pageProps} />
