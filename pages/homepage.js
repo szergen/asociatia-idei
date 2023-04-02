@@ -3,6 +3,7 @@
 // import PropTypes from "prop-types";
 // nodejs library that concatenates classes
 import classNames from "classnames";
+import Link from "next/link";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
@@ -60,16 +61,15 @@ export default function Homepage({ ...rest }) {
               We empower young people to become leaders in sustainability by providing educational opportunities and resources that foster a deep understanding of environmental stewardship, social responsibility and economic viability.
               </h4>
               <br />
-              {/* Make it a Link element */}
-              <Button
-                color="danger"
-                size="lg"
-                href="/about-us"
-                target="_blank"
-              >
-                <i className="fas fa-play" />
-                About Us
-              </Button>
+              <Link href="/about-us">
+                <Button
+                  color="danger"
+                  size="lg"
+                >
+                  <i className="fas fa-play" />
+                  About Us
+                </Button>
+              </Link>
             </GridItem>
           </GridContainer>
         </div>
@@ -91,25 +91,23 @@ export default function Homepage({ ...rest }) {
             <div className={classes.left}>
               <List className={classes.list}>
                 <ListItem className={classes.inlineBlock}>
-                  <a
+                  <Link
                     href="/"
-                    className={classes.block}
                   >
-                    Asociatia IDEI
-                  </a>
+                    <span className={classes.block}>Asociatia IDEI</span>
+                  </Link>
                 </ListItem>
                 <ListItem className={classes.inlineBlock}>
-                  <a
+                  <Link
                     href="/about-us"
                     target="_blank"
-                    className={classes.block}
                   >
-                    About us
-                  </a>
+                    <span className={classes.block}>About us</span>
+                  </Link>
                 </ListItem>
                 <ListItem className={classes.inlineBlock}>
                   <a
-                    href="#:~:text=Get%20in-,Touch,-Hey%20there!%20If"
+                    href="/#:~:text=Get%20in-,Touch,-Hey%20there!%20If"
                     className={classes.block}
                   >
                     Contact Us

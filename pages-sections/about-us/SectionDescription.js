@@ -22,11 +22,8 @@ export default function SectionDescription() {
           className={classNames(classes.mrAuto, classes.mlAuto)}
         >
           <h5 className={classes.description}>
-            This is the paragraph where you can write more details about your
-            product. Keep you user engaged by providing meaningful information.
-            Remember that by this time, the user is curious, otherwise he wouldn
-            {"'"}t scroll to get here. Add a button if you want the user to see
-            more.
+          Our mission is to provide educational opportunities and resources that foster a deep understanding of sustainable practices and the development of digital skills for the future. We inspire and equip young people with the knowledge, skills, and values necessary to create a more just and environmentally responsible world. <br/><br/>
+          We envision a future where young people are empowered with the digital skills and knowledge necessary to actively engage in the transition to a low-carbon, circular, and resource-efficient economy. Our vision is a world where the next generation of leaders drive positive change within their communities and beyond, shaping a more just, environmentally responsible, and interconnected society.
           </h5>
         </GridItem>
       </GridContainer>

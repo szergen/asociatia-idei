@@ -12,6 +12,10 @@ const teamStyle = {
     padding: "70px 0 0",
     textAlign: "center"
   },
+  EmailIcon: {
+    width: "22px !important",
+    height: "22px !important",
+  },
   title: {
     ...title,
     marginBottom: "1rem",

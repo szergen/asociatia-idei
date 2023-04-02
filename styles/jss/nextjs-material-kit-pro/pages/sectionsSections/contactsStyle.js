@@ -63,6 +63,11 @@ const contactsSection = {
     },
     padding: "80px 0"
   },
+  notification: {
+    position: "absolute",
+    textAlign: "left",
+    width: "93%",
+  },
   infoArea: {
     padding: "0",
     margin: "0",

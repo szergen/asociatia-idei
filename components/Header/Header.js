@@ -67,13 +67,13 @@ export default function Header(props) {
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
         {brand && (<Button className={classes.title}>
-          <Link href="/homepage">
+          <Link href="/">
             <a>{brand}</a>
           </Link>
         </Button>)}
         {logo && (
           <Button className={classes.title}>
-          <Link href="/homepage">
+          <Link href="/">
             <a>
               <img src={logo} alt="IDEI" width="80px"/>
             </a>

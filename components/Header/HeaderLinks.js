@@ -92,16 +92,17 @@ export default function HeaderLinks(props) {
   return (
     <List className={classes.list + " " + classes.mlAuto}>
       <ListItem className={classes.listItem}>
-        <Button
-          color="transparent"
-          className={
-            classes.navLink
-          }
-          href="/about-us"
-        >
-          <AccountBalance className={classes.socialIcons} />
-          About Us
-        </Button>
+        <Link href="/about-us">
+            <Button
+              color="transparent"
+              className={
+                classes.navLink
+              }
+            >
+            <AccountBalance className={classes.socialIcons} />
+            About Us
+          </Button>
+          </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
@@ -109,7 +110,7 @@ export default function HeaderLinks(props) {
           className={
             classes.navLink
           }
-          href="#:~:text=PROJECTS%20SPECIALIST-,Projects,-ECO%2DTOURISM"
+          href="/#:~:text=PROJECTS%20SPECIALIST-,Projects,-ECO%2DTOURISM"
         >
           <ViewQuilt className={classes.socialIcons} />
           Projects
@@ -145,7 +146,8 @@ export default function HeaderLinks(props) {
             className={
               classes.navLink + " " + classes.socialIconsButton
             }
-            href=""
+            href="https://www.facebook.com/asociatia.idei"
+            target="_blank"
           >
             <i
               className={
@@ -163,6 +165,8 @@ export default function HeaderLinks(props) {
             className={
               classes.navLink + " " + classes.socialIconsButton
             }
+            href="https://www.instagram.com/asociatia.idei/"
+            target="_blank"
           >
             <i
               className={

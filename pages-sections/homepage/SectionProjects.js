@@ -36,6 +36,9 @@ export default function SectionProjects({ ...rest }) {
               <h2 className={classes.title}>
                 Projects
               </h2>
+              <p className={classes.description}>
+              We actively engage in innovative projects and initiatives that address pressing environmental and digital challenges, harnessing the power of collaboration to make a meaningful impact on the lives of young people and the communities they serve, ultimately contributing to a sustainable and digitally-advanced future
+              </p>
               {/* <NavPills
                 alignCenter
                 color="rose"

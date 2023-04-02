@@ -12,6 +12,7 @@ import CardBody from "/components/Card/CardBody.js";
 import CardFooter from "/components/Card/CardFooter.js";
 import Muted from "/components/Typography/Muted.js";
 import Button from "/components/CustomButtons/Button.js";
+import EmailIcon from '@material-ui/icons/Email';
 
 import teamsStyle from "/styles/jss/nextjs-material-kit-pro/pages/sectionsSections/teamsStyle.js";
 import teamStyle from "/styles/jss/nextjs-material-kit-pro/pages/landingPageSections/teamStyle.js";
@@ -56,7 +57,7 @@ export default function SectionTeam() {
                   <CardBody plain>
                     <h4 className={classes.cardTitle}>Raluca Ciobotaru</h4>
                     <Muted>
-                      <h6 className={classes.cardCategory}>PRESIDENT</h6>
+                      <h6 className={classes.cardCategory}>EU PROJECTS EXPERT</h6>
                     </Muted>
                     {/* <p className={classes.description}>
                       Don{"'"}t be scared of the truth because we need to
@@ -64,14 +65,17 @@ export default function SectionTeam() {
                     </p> */}
                   </CardBody>
                   <CardFooter plain className={classes.justifyContentCenter}>
-                    <Button justIcon simple color="twitter">
-                      <i className="fab fa-twitter" />
+                    <Button justIcon simple color="linkedin" href="https://ro.linkedin.com/in/ralucaciobotaru" target="_blank">
+                      <i className="fab fa-linkedin" />
                     </Button>
-                    <Button justIcon simple color="facebook">
+                    <Button justIcon simple color="facebook" href="https://facebook.com/ciobotaru.raluca/" target="_blank">
                       <i className="fab fa-facebook-square" />
                     </Button>
-                    <Button justIcon simple color="google">
-                      <i className="fab fa-google" />
+                    <Button justIcon simple color="youtube" href="https://instagram.com/r.l.k.208?igshid=Mzc1MmZhNjY=" target="_blank">
+                      <i className="fab fa-instagram" />
+                    </Button>
+                    <Button justIcon simple color="facebook" href="mailto:raluca@asociatia-idei.eu" target="_blank">
+                      <EmailIcon className={classes.EmailIcon}/>
                     </Button>
                   </CardFooter>
                 </GridItem>
@@ -110,16 +114,16 @@ export default function SectionTeam() {
                   </CardBody>
                   <CardFooter plain className={classes.justifyContentCenter}>
                     <Button justIcon simple color="linkedin">
-                      <i className="fab fa-linkedin-in" />
-                    </Button>
-                    <Button justIcon simple color="facebook">
-                      <i className="fab fa-facebook-square" />
-                    </Button>
-                    <Button justIcon simple color="dribbble">
-                      <i className="fab fa-dribbble" />
-                    </Button>
-                    <Button justIcon simple color="google">
-                      <i className="fab fa-google" />
+                        <i className="fab fa-linkedin" />
+                      </Button>
+                      <Button justIcon simple color="facebook">
+                        <i className="fab fa-facebook-square" />
+                      </Button>
+                      <Button justIcon simple color="youtube">
+                        <i className="fab fa-instagram"/>
+                      </Button>
+                      <Button justIcon simple color="facebook">
+                        <EmailIcon className={classes.EmailIcon}/>
                     </Button>
                   </CardFooter>
                 </GridItem>
@@ -157,14 +161,17 @@ export default function SectionTeam() {
                     </p> */}
                   </CardBody>
                   <CardFooter plain className={classes.justifyContentCenter}>
-                    <Button justIcon simple color="youtube">
-                      <i className="fab fa-youtube" />
-                    </Button>
-                    <Button justIcon simple color="twitter">
-                      <i className="fab fa-twitter" />
-                    </Button>
-                    <Button justIcon simple color="instagram">
-                      <i className="fab fa-instagram" />
+                      <Button justIcon simple color="linkedin">
+                        <i className="fab fa-linkedin" />
+                      </Button>
+                      <Button justIcon simple color="facebook">
+                        <i className="fab fa-facebook-square" />
+                      </Button>
+                      <Button justIcon simple color="youtube">
+                        <i className="fab fa-instagram"/>
+                      </Button>
+                      <Button justIcon simple color="facebook">
+                        <EmailIcon className={classes.EmailIcon}/>
                     </Button>
                   </CardFooter>
                 </GridItem>
@@ -194,7 +201,7 @@ export default function SectionTeam() {
                   <CardBody plain>
                     <h4 className={classes.cardTitle}>Claudia Mihaela Calciu</h4>
                     <Muted>
-                      <h6 className={classes.cardCategory}>EU PROJECTS EXPERT</h6>
+                      <h6 className={classes.cardCategory}>PROJECTS SPECIALIST</h6>
                     </Muted>
                     {/* <p className={classes.description}>
                       I love you like Kanye loves Kanye. Don{"'"}t be scared of
@@ -202,14 +209,17 @@ export default function SectionTeam() {
                     </p> */}
                   </CardBody>
                   <CardFooter plain className={classes.justifyContentCenter}>
-                    <Button justIcon simple color="linkedin">
-                      <i className="fab fa-linkedin-in" />
-                    </Button>
-                    <Button justIcon simple color="facebook">
-                      <i className="fab fa-facebook-square" />
-                    </Button>
-                    <Button justIcon simple color="google">
-                      <i className="fab fa-google" />
+                       <Button justIcon simple color="linkedin">
+                        <i className="fab fa-linkedin" />
+                      </Button>
+                      <Button justIcon simple color="facebook">
+                        <i className="fab fa-facebook-square" />
+                      </Button>
+                      <Button justIcon simple color="youtube">
+                        <i className="fab fa-instagram"/>
+                      </Button>
+                      <Button justIcon simple color="facebook">
+                        <EmailIcon className={classes.EmailIcon}/>
                     </Button>
                   </CardFooter>
                 </GridItem>

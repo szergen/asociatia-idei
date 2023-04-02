@@ -9,6 +9,7 @@ import CardAvatar from "/components/Card/CardAvatar.js";
 import CardBody from "/components/Card/CardBody.js";
 import CardFooter from "/components/Card/CardFooter.js";
 import Button from "/components/CustomButtons/Button.js";
+import EmailIcon from '@material-ui/icons/Email';
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -30,136 +31,123 @@ export default function SectionTeam() {
             classes.textCenter
           )}
         >
-          <h2 className={classes.title}>We are nerd rockstars</h2>
-          <h5 className={classes.description}>
-            This is the paragraph where you can write more details about your
-            team. Keep you user engaged by providing meaningful information.
-          </h5>
+          <h2 className={classes.title}>Our Team</h2>
         </GridItem>
       </GridContainer>
       <GridContainer>
         <GridItem md={3} sm={3}>
           <Card profile plain>
             <CardAvatar profile plain>
-              <a href="#pablo">
                 <img
-                  src="/img/faces/marc.jpg"
-                  alt="profile-pic"
+                  src="/img/team/raluca.jpg"
+                  alt="Pic Raluca"
                   className={classes.img}
                 />
-              </a>
             </CardAvatar>
             <CardBody plain>
-              <h4 className={classes.cardTitle}>Alec Thompson</h4>
-              <h6 className={classes.textMuted}>CEO / Co-Founder</h6>
-              <p className={classes.cardDescription}>
-                And I love you like Kanye loves Kanye. We need to restart the
-                human foundation.
-              </p>
+              <h4 className={classes.cardTitle}>Raluca Ciobotaru</h4>
+              <h6 className={classes.textMuted}>President / EU PROJECTS EXPERT</h6>
             </CardBody>
             <CardFooter className={classes.justifyContent}>
-              <Button href="#pablo" justIcon simple color="twitter">
-                <i className="fab fa-twitter" />
-              </Button>
-              <Button href="#pablo" justIcon simple color="facebook">
-                <i className="fab fa-facebook" />
-              </Button>
-              <Button href="#pablo" justIcon simple color="google">
-                <i className="fab fa-google" />
-              </Button>
+            <Button justIcon simple color="linkedin" href="https://ro.linkedin.com/in/ralucaciobotaru" target="_blank">
+                      <i className="fab fa-linkedin" />
+                    </Button>
+                    <Button justIcon simple color="facebook" href="https://facebook.com/ciobotaru.raluca/" target="_blank">
+                      <i className="fab fa-facebook-square" />
+                    </Button>
+                    <Button justIcon simple color="youtube" href="https://instagram.com/r.l.k.208?igshid=Mzc1MmZhNjY=" target="_blank">
+                      <i className="fab fa-instagram" />
+                    </Button>
+                    <Button justIcon simple color="facebook" href="mailto:raluca@asociatia-idei.eu" target="_blank">
+                      <EmailIcon className={classes.EmailIcon}/>
+                    </Button>
             </CardFooter>
           </Card>
         </GridItem>
         <GridItem md={3} sm={3}>
-          <Card profile plain>
+        <Card profile plain>
             <CardAvatar profile plain>
-              <a href="#pablo">
                 <img
-                  src="/img/faces/kendall.jpg"
-                  alt="profile-pic"
+                  src="/img/team/right.jpg"
+                  alt="Pic Cristina"
                   className={classes.img}
                 />
-              </a>
             </CardAvatar>
             <CardBody plain>
-              <h4 className={classes.cardTitle}>Tania Andrew</h4>
-              <h6 className={classes.textMuted}>DESIGNER</h6>
-              <p className={classes.cardDescription}>
-                Don{"'"}t be scared of the truth because we need to restart the
-                human foundation. And I love you like Kanye loves Kanye.
-              </p>
+              <h4 className={classes.cardTitle}>Cristina Chira</h4>
+              <h6 className={classes.textMuted}>SUSTAINABILITY EXPERT</h6>
             </CardBody>
             <CardFooter className={classes.justifyContent}>
-              <Button href="#pablo" justIcon simple color="twitter">
-                <i className="fab fa-twitter" />
-              </Button>
-              <Button href="#pablo" justIcon simple color="dribbble">
-                <i className="fab fa-dribbble" />
-              </Button>
-              <Button href="#pablo" justIcon simple color="linkedin">
-                <i className="fab fa-linkedin-in" />
-              </Button>
+            <Button justIcon simple color="linkedin" href="https://ro.linkedin.com/in/ralucaciobotaru" target="_blank">
+                      <i className="fab fa-linkedin" />
+                    </Button>
+                    <Button justIcon simple color="facebook" href="https://facebook.com/ciobotaru.raluca/" target="_blank">
+                      <i className="fab fa-facebook-square" />
+                    </Button>
+                    <Button justIcon simple color="youtube" href="https://instagram.com/r.l.k.208?igshid=Mzc1MmZhNjY=" target="_blank">
+                      <i className="fab fa-instagram" />
+                    </Button>
+                    <Button justIcon simple color="facebook" href="mailto:raluca@asociatia-idei.eu" target="_blank">
+                      <EmailIcon className={classes.EmailIcon}/>
+                    </Button>
             </CardFooter>
           </Card>
         </GridItem>
         <GridItem md={3} sm={3}>
-          <Card profile plain>
+        <Card profile plain>
             <CardAvatar profile plain>
-              <a href="#pablo">
                 <img
-                  src="/img/faces/christian.jpg"
-                  alt="profile-pic"
+                  src="/img/team/right.jpg"
+                  alt="Pic Catalin"
                   className={classes.img}
                 />
-              </a>
             </CardAvatar>
             <CardBody plain>
-              <h4 className={classes.cardTitle}>Christian Mike</h4>
-              <h6 className={classes.textMuted}>Web Developer</h6>
-              <p className={classes.cardDescription}>
-                I love you like Kanye loves Kanye. Don{"'"}t be scared of the
-                truth because we need to restart the human foundation.
-              </p>
+              <h4 className={classes.cardTitle}>Catalin Sirbu</h4>
+              <h6 className={classes.textMuted}>WEB DESIGNER</h6>
             </CardBody>
             <CardFooter className={classes.justifyContent}>
-              <Button href="#pablo" justIcon simple color="facebook">
-                <i className="fab fa-facebook" />
-              </Button>
-              <Button href="#pablo" justIcon simple color="dribbble">
-                <i className="fab fa-dribbble" />
-              </Button>
+            <Button justIcon simple color="linkedin" href="https://ro.linkedin.com/in/ralucaciobotaru" target="_blank">
+                      <i className="fab fa-linkedin" />
+                    </Button>
+                    <Button justIcon simple color="facebook" href="https://facebook.com/ciobotaru.raluca/" target="_blank">
+                      <i className="fab fa-facebook-square" />
+                    </Button>
+                    <Button justIcon simple color="youtube" href="https://instagram.com/r.l.k.208?igshid=Mzc1MmZhNjY=" target="_blank">
+                      <i className="fab fa-instagram" />
+                    </Button>
+                    <Button justIcon simple color="facebook" href="mailto:raluca@asociatia-idei.eu" target="_blank">
+                      <EmailIcon className={classes.EmailIcon}/>
+                    </Button>
             </CardFooter>
           </Card>
         </GridItem>
         <GridItem md={3} sm={3}>
-          <Card profile plain>
+        <Card profile plain>
             <CardAvatar profile plain>
-              <a href="#pablo">
                 <img
-                  src="/img/faces/avatar.jpg"
-                  alt="profile-pic"
+                  src="/img/team/right.jpg"
+                  alt="Pic Claudia"
                   className={classes.img}
                 />
-              </a>
             </CardAvatar>
             <CardBody plain>
-              <h4 className={classes.cardTitle}>Rebecca Stormvile</h4>
-              <h6 className={classes.textMuted}>WEB DEVELOPER</h6>
-              <p className={classes.cardDescription}>
-                And I love you like Kanye loves Kanye. We really need to restart
-                the human foundation.
-              </p>
+              <h4 className={classes.cardTitle}>Claudia Mihaela Calciu</h4>
+              <h6 className={classes.textMuted}>PROJECTS SPECIALIST</h6>
             </CardBody>
             <CardFooter className={classes.justifyContent}>
-              <Button href="#pablo" justIcon simple color="google">
-                <i className="fab fa-google" />
-              </Button>
-              <Button href="#pablo" justIcon simple color="twitter">
-                <i className="fab fa-twitter" />
-              </Button>
-              <Button href="#pablo" justIcon simple color="dribbble">
-                <i className="fab fa-dribbble" />
-              </Button>
+            <Button justIcon simple color="linkedin" href="https://ro.linkedin.com/in/ralucaciobotaru" target="_blank">
+                      <i className="fab fa-linkedin" />
+                    </Button>
+                    <Button justIcon simple color="facebook" href="https://facebook.com/ciobotaru.raluca/" target="_blank">
+                      <i className="fab fa-facebook-square" />
+                    </Button>
+                    <Button justIcon simple color="youtube" href="https://instagram.com/r.l.k.208?igshid=Mzc1MmZhNjY=" target="_blank">
+                      <i className="fab fa-instagram" />
+                    </Button>
+                    <Button justIcon simple color="facebook" href="mailto:raluca@asociatia-idei.eu" target="_blank">
+                      <EmailIcon className={classes.EmailIcon}/>
+                    </Button>
             </CardFooter>
           </Card>
         </GridItem>

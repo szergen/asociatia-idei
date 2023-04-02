@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useRef, useState} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // import Checkbox from "@material-ui/core/Checkbox";
 // import FormControlLabel from "@material-ui/core/FormControlLabel";
 // @material-ui/icons
 import PinDrop from "@material-ui/icons/PinDrop";
+import emailjs from '@emailjs/browser';
+import Check from "@material-ui/icons/Check";
+import Warning from "@material-ui/icons/Warning";
 // import Phone from "@material-ui/icons/Phone";
 // import Check from "@material-ui/icons/Check";
 // core components
@@ -17,24 +20,81 @@ import CardBody from "/components/Card/CardBody.js";
 import CardFooter from "/components/Card/CardFooter.js";
 import CustomInput from "/components/CustomInput/CustomInput.js";
 import Button from "/components/CustomButtons/Button.js";
+import SnackbarContent from "/components/Snackbar/SnackbarContent.js";
+import Clearfix from "/components/Clearfix/Clearfix.js";
 
 import contactsStyle from "/styles/jss/nextjs-material-kit-pro/pages/sectionsSections/contactsStyle.js";
 
 const useStyles = makeStyles(contactsStyle);
 
 export default function SectionContact({ ...rest }) {
-  const [checked, setChecked] = React.useState([]);
-  const handleToggle = (value) => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-    setChecked(newChecked);
-  };
+  // const [checked, setChecked] = React.useState([]);
+  // const handleToggle = (value) => {
+  //   const currentIndex = checked.indexOf(value);
+  //   const newChecked = [...checked];
+  //   if (currentIndex === -1) {
+  //     newChecked.push(value);
+  //   } else {
+  //     newChecked.splice(currentIndex, 1);
+  //   }
+  //   setChecked(newChecked);
+  // };
   const classes = useStyles();
+  const form = useRef();
+  const [formSubmited, setFormSubmited] = useState(false);
+  const [notification, setNotification] = useState(null);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // emailjs.sendForm Params: serviceId, templateId, templateParams, userId
+    emailjs.sendForm(
+      'service_hnqz52d', 
+      'contact_form',
+      form.current,
+      'eMC5J00XgHPI0IgWK'
+    ).then((result) => {
+      setFormSubmited(true);
+      setNotification(successAlert);
+      console.log(result.text);
+      }, (error) => {
+           setFormSubmited(true);
+           setNotification(warningAlert);
+          console.log(error.text);
+      });
+  };
+
+  const successAlert = (
+    <>
+      <SnackbarContent
+          message={
+            <span>
+              Message Sent!<br/> We will get back to you shortly.
+            </span>
+          }
+          close
+          color="success"
+          icon={Check}
+        />
+        <Clearfix/>
+        </>
+  );
+
+  const warningAlert = (
+      <SnackbarContent
+        message={
+          <span>
+            There has been an error sending your message.<br/>
+            Please reach out to us via email at <a href="mailto:raluca@asociatia-idei.eu">raluca@asociatia-idei.eu</a>.
+          </span>
+        }
+        close
+        color="danger"
+        icon="info_outline"
+      />
+  )
+
+
   return (
     <div className="cd-section" {...rest}>
       <div
@@ -62,7 +122,7 @@ export default function SectionContact({ ...rest }) {
             </GridItem>
             <GridItem xs={12} sm={6} md={6} className={classes.mlAuto}>
               <Card className={classes.card1}>
-                <form>
+                <form ref={form} onSubmit={handleSubmit} >
                   <CardHeader
                     contact
                     color="idei"
@@ -75,27 +135,34 @@ export default function SectionContact({ ...rest }) {
                       <GridItem xs={12} sm={6} md={6}>
                         <CustomInput
                           labelText="First Name"
-                          id="first"
                           formControlProps={{
                             fullWidth: true
+                          }}
+                          inputProps={{
+                            name: 'from_first_name',
                           }}
                         />
                       </GridItem>
                       <GridItem xs={12} sm={6} md={6}>
                         <CustomInput
                           labelText="Last Name"
-                          id="last"
                           formControlProps={{
                             fullWidth: true
+                          }}
+                          inputProps={{
+                            name: 'from_last_name',
                           }}
                         />
                       </GridItem>
                     </GridContainer>
                     <CustomInput
                       labelText="Email Address"
-                      id="email-address"
+                      id="email"
                       formControlProps={{
                         fullWidth: true
+                      }}
+                      inputProps={{
+                        name: 'email',
                       }}
                     />
                     <CustomInput
@@ -106,7 +173,8 @@ export default function SectionContact({ ...rest }) {
                       }}
                       inputProps={{
                         multiline: true,
-                        rows: 5
+                        rows: 5,
+                        name: 'message',
                       }}
                     />
                   </CardBody>
@@ -129,12 +197,15 @@ export default function SectionContact({ ...rest }) {
                       classes={{ label: classes.label }}
                       label="I'm not a robot"
                     /> */}
-                    <Button color="idei" className={classes.pullRight}>
+                    <Button type="submit" color="idei" className={classes.pullRight}>
                       Send Message
                     </Button>
                   </CardFooter>
                 </form>
               </Card>
+              <div className={classes.notification}>
+              {formSubmited && notification}
+              </div>
             </GridItem>
           </GridContainer>
         </div>

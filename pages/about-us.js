@@ -6,6 +6,7 @@ import classNames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import Link from "next/link";
 // @material-ui/icons
 import Favorite from "@material-ui/icons/Favorite";
 // core components
@@ -18,9 +19,9 @@ import Footer from "/components/Footer/Footer.js";
 // sections for this page
 import SectionDescription from "/pages-sections/about-us/SectionDescription.js";
 import SectionTeam from "/pages-sections/about-us/SectionTeam.js";
-import SectionServices from "/pages-sections/about-us/SectionServices.js";
-import SectionOffice from "/pages-sections/about-us/SectionOffice.js";
-import SectionContact from "/pages-sections/about-us/SectionContact.js";
+// import SectionServices from "/pages-sections/about-us/SectionServices.js";
+// import SectionOffice from "/pages-sections/about-us/SectionOffice.js";
+// import SectionContact from "/pages-sections/about-us/SectionContact.js";
 
 import aboutUsStyle from "/styles/jss/nextjs-material-kit-pro/pages/aboutUsStyle.js";
 
@@ -35,14 +36,14 @@ export default function AboutUsPage() {
   return (
     <div>
       <Header
-        brand="NextJS Material Kit PRO"
-        links={<HeaderLinks dropdownHoverColor="info" />}
-        fixed
-        color="transparent"
-        changeColorOnScroll={{
-          height: 300,
-          color: "info"
-        }}
+         color="transparent"
+         logo="/img/logo-inverted.png"
+         links={<HeaderLinks dropdownHoverColor="info" />}
+         fixed
+         changeColorOnScroll={{
+           height: 200,
+           color: "idei"
+         }}
       />
       <Parallax image="/img/bg9.jpg" filter="dark" small>
         <div className={classes.container}>
@@ -58,8 +59,7 @@ export default function AboutUsPage() {
             >
               <h1 className={classes.title}>About Us</h1>
               <h4>
-                Meet the amazing team behind this project and find out more
-                about how we work.
+                IDEI is dedicated to empowering individuals across Europe to become leaders in environmental sustainability and digital education.
               </h4>
             </GridItem>
           </GridContainer>
@@ -69,9 +69,9 @@ export default function AboutUsPage() {
         <div className={classes.container}>
           <SectionDescription />
           <SectionTeam />
-          <SectionServices />
+          {/* <SectionServices />
           <SectionOffice />
-          <SectionContact />
+          <SectionContact /> */}
         </div>
       </div>
       <Footer
@@ -79,54 +79,34 @@ export default function AboutUsPage() {
           <div>
             <div className={classes.left}>
               <List className={classes.list}>
+              <ListItem className={classes.inlineBlock}>
+                  <Link
+                    href="/"
+                  >
+                    <span className={classes.block}>Asociatia IDEI</span>
+                  </Link>
+                </ListItem>
                 <ListItem className={classes.inlineBlock}>
-                  <a
-                    href="https://www.creative-tim.com/?ref=njsmkp-about-us"
-                    className={classes.block}
+                  <Link
+                    href="/about-us"
                     target="_blank"
                   >
-                    Creative Tim
-                  </a>
+                    <span className={classes.block}>About us</span>
+                  </Link>
                 </ListItem>
                 <ListItem className={classes.inlineBlock}>
                   <a
-                    href="https://www.creative-tim.com/presentation?ref=njsmkp-about-us"
+                    href="/#:~:text=Get%20in-,Touch,-Hey%20there!%20If"
                     className={classes.block}
-                    target="_blank"
                   >
-                    About us
-                  </a>
-                </ListItem>
-                <ListItem className={classes.inlineBlock}>
-                  <a
-                    href="http://blog.creative-tim.com/?ref=njsmkp-about-us"
-                    className={classes.block}
-                    target="_blank"
-                  >
-                    Blog
-                  </a>
-                </ListItem>
-                <ListItem className={classes.inlineBlock}>
-                  <a
-                    href="https://www.creative-tim.com/license?ref=njsmkp-about-us"
-                    className={classes.block}
-                    target="_blank"
-                  >
-                    Licenses
+                    Contact Us
                   </a>
                 </ListItem>
               </List>
             </div>
             <div className={classes.right}>
-              &copy; {1900 + new Date().getYear()} , made with{" "}
-              <Favorite className={classes.icon} /> by{" "}
-              <a
-                href="https://www.creative-tim.com?ref=njsmkp-about-us"
-                target="_blank"
-              >
-                Creative Tim
-              </a>{" "}
-              for a better web.
+              &copy; {1900 + new Date().getYear()}&nbsp;
+              Asociatia IDEI - Initiative si Demersuri Educationale si Inovatoare
             </div>
           </div>
         }
