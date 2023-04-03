@@ -9,10 +9,10 @@ import GridItem from "/components/Grid/GridItem.js";
 import Card from "/components/Card/Card.js";
 import CardHeader from "/components/Card/CardHeader.js";
 import CardBody from "/components/Card/CardBody.js";
-import CardFooter from "/components/Card/CardFooter.js";
-import Muted from "/components/Typography/Muted.js";
-import Button from "/components/CustomButtons/Button.js";
-import EmailIcon from '@material-ui/icons/Email';
+// import CardFooter from "/components/Card/CardFooter.js";
+// import Muted from "/components/Typography/Muted.js";
+// import Button from "/components/CustomButtons/Button.js";
+// import EmailIcon from '@material-ui/icons/Email';
 
 import teamsStyle from "/styles/jss/nextjs-material-kit-pro/pages/sectionsSections/teamsStyle.js";
 import teamStyle from "/styles/jss/nextjs-material-kit-pro/pages/landingPageSections/teamStyle.js";
@@ -31,23 +31,23 @@ export default function SectionTeam() {
   const classes = useStyles();
   return (
     <div className={classes.section}>
-      <h2 className={classes.title}>Our Team</h2>
+      <h2 className={classes.title}>Areas of work</h2>
       <div>
         <GridContainer>
-          <GridItem xs={12} sm={6} md={6}>
+          <GridItem xs={12} sm={12} md={6} lg={6}>
             <Card profile plain className={classes.card3}>
               <GridContainer>
                 <GridItem xs={12} sm={5} md={5}>
                   <CardHeader image plain>
                       <img
-                        src="/img/team/raluca.jpg"
-                        alt="Pic Raluca"
+                        src="/img/team/capacity_building.jpg"
+                        alt="Pic of Capacity Building"
                       />
                     <div
                       className={classes.coloredShadow}
                       style={{
                         backgroundImage:
-                          "url('/img/team/raluca.jpg')",
+                          "url('/img/team/capacity_building.jpg')",
                         opacity: "1"
                       }}
                     />
@@ -55,47 +55,32 @@ export default function SectionTeam() {
                 </GridItem>
                 <GridItem xs={12} sm={7} md={7}>
                   <CardBody plain>
-                    <h4 className={classes.cardTitle}>Raluca Ciobotaru</h4>
-                    <Muted>
+                    <h4 className={classes.cardTitle}>CAPACITY BUILDING</h4>
+                    {/* <Muted>
                       <h6 className={classes.cardCategory}>EU PROJECTS EXPERT</h6>
-                    </Muted>
-                    {/* <p className={classes.description}>
-                      Don{"'"}t be scared of the truth because we need to
-                      restart the human foundation in truth...
-                    </p> */}
+                    </Muted> */}
+                    <p className={classes.description}>
+                    We work closely with youth serving organizations and other grassroot organisations to enhance their capabilities in digital transformation, environmental sustainability, and other relevant areas.
+                    </p>
                   </CardBody>
-                  <CardFooter plain className={classes.justifyContentCenter}>
-                    <Button justIcon simple color="linkedin" href="https://ro.linkedin.com/in/ralucaciobotaru" target="_blank">
-                      <i className="fab fa-linkedin" />
-                    </Button>
-                    <Button justIcon simple color="facebook" href="https://facebook.com/ciobotaru.raluca/" target="_blank">
-                      <i className="fab fa-facebook-square" />
-                    </Button>
-                    <Button justIcon simple color="youtube" href="https://instagram.com/r.l.k.208?igshid=Mzc1MmZhNjY=" target="_blank">
-                      <i className="fab fa-instagram" />
-                    </Button>
-                    <Button justIcon simple color="facebook" href="mailto:raluca@asociatia-idei.eu" target="_blank">
-                      <EmailIcon className={classes.EmailIcon}/>
-                    </Button>
-                  </CardFooter>
                 </GridItem>
               </GridContainer>
             </Card>
           </GridItem>
-          <GridItem xs={12} sm={6} md={6}>
+          <GridItem xs={12} sm={12} md={6} lg={6}>
             <Card profile plain className={classes.card3}>
               <GridContainer>
                 <GridItem xs={12} sm={5} md={5}>
                   <CardHeader image plain>
                       <img
-                        src="/img/team/right.jpg"
-                        alt="Pic Cristina"
+                        src="/img/team/youth_employment.jpg"
+                        alt="Pic Youth Employment"
                       />
                     <div
                       className={classes.coloredShadow}
                       style={{
                         backgroundImage:
-                          "url('/img/team/right.jpg')",
+                          "url('/img/team/youth_employment.jpg')",
                         opacity: "1"
                       }}
                     />
@@ -103,47 +88,29 @@ export default function SectionTeam() {
                 </GridItem>
                 <GridItem xs={12} sm={7} md={7}>
                   <CardBody plain>
-                    <h4 className={classes.cardTitle}>Cristina Chira</h4>
-                    <Muted>
-                      <h6 className={classes.cardCategory}>SUSTAINABILITY EXPERT</h6>
-                    </Muted>
-                    {/* <p className={classes.description}>
-                      Don{"'"}t be scared of the truth because we need to
-                      restart the human foundation in truth...
-                    </p> */}
+                    <h4 className={classes.cardTitle}>Youth Employment and Entrepreneurship</h4>
+                    <p className={classes.description}>
+                    Our initiatives and projects promote job opportunities for young people.and enhance their entrepreneurial spirit and prospects.
+                    </p>
                   </CardBody>
-                  <CardFooter plain className={classes.justifyContentCenter}>
-                    <Button justIcon simple color="linkedin">
-                        <i className="fab fa-linkedin" />
-                      </Button>
-                      <Button justIcon simple color="facebook">
-                        <i className="fab fa-facebook-square" />
-                      </Button>
-                      <Button justIcon simple color="youtube">
-                        <i className="fab fa-instagram"/>
-                      </Button>
-                      <Button justIcon simple color="facebook">
-                        <EmailIcon className={classes.EmailIcon}/>
-                    </Button>
-                  </CardFooter>
                 </GridItem>
               </GridContainer>
             </Card>
           </GridItem>
-          <GridItem xs={12} sm={6} md={6}>
+          <GridItem xs={12} sm={12} md={6} lg={6}>
             <Card profile plain className={classes.card3}>
               <GridContainer>
                 <GridItem xs={12} sm={5} md={5}>
                   <CardHeader image plain>
                       <img
-                        src="/img/team/right.jpg"
-                        alt="Pic Catalin"
+                        src="/img/team/social_inclusion.jpg"
+                        alt="Photo by William White on Unsplash"
                       />
                     <div
                       className={classes.coloredShadow}
                       style={{
                         backgroundImage:
-                          "url('/img/team/right.jpg')",
+                          "url('/img/team/social_inclusion.jpg')",
                         opacity: "1"
                       }}
                     />
@@ -151,47 +118,29 @@ export default function SectionTeam() {
                 </GridItem>
                 <GridItem xs={12} sm={7} md={7}>
                   <CardBody plain>
-                    <h4 className={classes.cardTitle}>Catalin Sirbu</h4>
-                    <Muted>
-                      <h6 className={classes.cardCategory}>WEB DESIGNER</h6>
-                    </Muted>
-                    {/* <p className={classes.description}>
-                      I love you like Kanye loves Kanye. Don{"'"}t be scared of
-                      the truth.
-                    </p> */}
+                    <h4 className={classes.cardTitle}>Social Inclusion and Equal Opportunities</h4>
+                    <p className={classes.description}>
+                    We work to ensure that all young people, regardless of their background or circumstances, have equal access to opportunities and resources for personal and professional development.
+                    </p>
                   </CardBody>
-                  <CardFooter plain className={classes.justifyContentCenter}>
-                      <Button justIcon simple color="linkedin">
-                        <i className="fab fa-linkedin" />
-                      </Button>
-                      <Button justIcon simple color="facebook">
-                        <i className="fab fa-facebook-square" />
-                      </Button>
-                      <Button justIcon simple color="youtube">
-                        <i className="fab fa-instagram"/>
-                      </Button>
-                      <Button justIcon simple color="facebook">
-                        <EmailIcon className={classes.EmailIcon}/>
-                    </Button>
-                  </CardFooter>
                 </GridItem>
               </GridContainer>
             </Card>
           </GridItem>
-          <GridItem xs={12} sm={6} md={6}>
+          <GridItem xs={12} sm={12} md={6} lg={6}>
             <Card profile plain className={classes.card3}>
               <GridContainer>
                 <GridItem xs={12} sm={5} md={5}>
                   <CardHeader image plain>
                       <img
-                        src="/img/team/right.jpg"
-                        alt="Pic Claudia"
+                        src="/img/team/civic_engagement.jpg"
+                        alt="Photo by William White on Unsplash"
                       />
                     <div
                       className={classes.coloredShadow}
                       style={{
                         backgroundImage:
-                          "url('/img/team/right.jpg')",
+                          "url('/img/team/civic_engagement.jpg')",
                         opacity: "1"
                       }}
                     />
@@ -199,29 +148,11 @@ export default function SectionTeam() {
                 </GridItem>
                 <GridItem xs={12} sm={7} md={7}>
                   <CardBody plain>
-                    <h4 className={classes.cardTitle}>Claudia Mihaela Calciu</h4>
-                    <Muted>
-                      <h6 className={classes.cardCategory}>PROJECTS SPECIALIST</h6>
-                    </Muted>
-                    {/* <p className={classes.description}>
-                      I love you like Kanye loves Kanye. Don{"'"}t be scared of
-                      the truth.
-                    </p> */}
+                    <h4 className={classes.cardTitle}>Youth Participation and Civic Engagement</h4>
+                    <p className={classes.description}>
+                    We encourage young people to take an active role in shaping their communities and society at large.
+                    </p>
                   </CardBody>
-                  <CardFooter plain className={classes.justifyContentCenter}>
-                       <Button justIcon simple color="linkedin">
-                        <i className="fab fa-linkedin" />
-                      </Button>
-                      <Button justIcon simple color="facebook">
-                        <i className="fab fa-facebook-square" />
-                      </Button>
-                      <Button justIcon simple color="youtube">
-                        <i className="fab fa-instagram"/>
-                      </Button>
-                      <Button justIcon simple color="facebook">
-                        <EmailIcon className={classes.EmailIcon}/>
-                    </Button>
-                  </CardFooter>
                 </GridItem>
               </GridContainer>
             </Card>

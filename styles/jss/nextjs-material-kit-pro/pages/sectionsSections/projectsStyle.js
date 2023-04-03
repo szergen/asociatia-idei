@@ -28,7 +28,6 @@ const projectsSection = {
     [mobileBp]: {
       padding: "0px"
     },
-    padding: "80px 0 0"
   },
   tabSpace: {
     padding: "20px 0 50px 0px"

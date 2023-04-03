@@ -8,7 +8,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Link from "next/link";
 // @material-ui/icons
-import Favorite from "@material-ui/icons/Favorite";
+// import Favorite from "@material-ui/icons/Favorite";
 // core components
 import Header from "/components/Header/Header.js";
 import HeaderLinks from "/components/Header/HeaderLinks.js";
@@ -25,6 +25,7 @@ import SectionTeam from "/pages-sections/about-us/SectionTeam.js";
 
 import aboutUsStyle from "/styles/jss/nextjs-material-kit-pro/pages/aboutUsStyle.js";
 
+// import styles
 const useStyles = makeStyles(aboutUsStyle);
 
 export default function AboutUsPage() {

@@ -31,7 +31,8 @@ export default function SectionTeam() {
             classes.textCenter
           )}
         >
-          <h2 className={classes.title}>Our Team</h2>
+          <h2 className={classes.title}>Meet the passionate team behind IDEI</h2>
+          <h5 className={classes.description}> We are a group of dedicated professionals who bring their diverse expertise and experience to drive the organization's mission and vision forward, ensuring the successful implementation of projects and initiatives.<br/><br/> Get to know our team members and their unique contributions to Asociatia IDEI.</h5>
         </GridItem>
       </GridContainer>
       <GridContainer>
@@ -46,7 +47,8 @@ export default function SectionTeam() {
             </CardAvatar>
             <CardBody plain>
               <h4 className={classes.cardTitle}>Raluca Ciobotaru</h4>
-              <h6 className={classes.textMuted}>President / EU PROJECTS EXPERT</h6>
+              <h6 className={classes.textMuted}>President & Co-founder</h6>
+              <h6 className={classes.textMuted}>Head of Development</h6>
             </CardBody>
             <CardFooter className={classes.justifyContent}>
             <Button justIcon simple color="linkedin" href="https://ro.linkedin.com/in/ralucaciobotaru" target="_blank">
@@ -54,9 +56,6 @@ export default function SectionTeam() {
                     </Button>
                     <Button justIcon simple color="facebook" href="https://facebook.com/ciobotaru.raluca/" target="_blank">
                       <i className="fab fa-facebook-square" />
-                    </Button>
-                    <Button justIcon simple color="youtube" href="https://instagram.com/r.l.k.208?igshid=Mzc1MmZhNjY=" target="_blank">
-                      <i className="fab fa-instagram" />
                     </Button>
                     <Button justIcon simple color="facebook" href="mailto:raluca@asociatia-idei.eu" target="_blank">
                       <EmailIcon className={classes.EmailIcon}/>
@@ -75,50 +74,44 @@ export default function SectionTeam() {
             </CardAvatar>
             <CardBody plain>
               <h4 className={classes.cardTitle}>Cristina Chira</h4>
-              <h6 className={classes.textMuted}>SUSTAINABILITY EXPERT</h6>
+              <h6 className={classes.textMuted}>Sustainability Specialist</h6>
             </CardBody>
-            <CardFooter className={classes.justifyContent}>
-            <Button justIcon simple color="linkedin" href="https://ro.linkedin.com/in/ralucaciobotaru" target="_blank">
+            {/* <CardFooter className={classes.justifyContent}>
+            <Button justIcon simple color="linkedin" href="#" target="_blank">
                       <i className="fab fa-linkedin" />
                     </Button>
-                    <Button justIcon simple color="facebook" href="https://facebook.com/ciobotaru.raluca/" target="_blank">
+                    <Button justIcon simple color="facebook" href="#" target="_blank">
                       <i className="fab fa-facebook-square" />
                     </Button>
-                    <Button justIcon simple color="youtube" href="https://instagram.com/r.l.k.208?igshid=Mzc1MmZhNjY=" target="_blank">
+                    <Button justIcon simple color="youtube" href="#" target="_blank">
                       <i className="fab fa-instagram" />
                     </Button>
-                    <Button justIcon simple color="facebook" href="mailto:raluca@asociatia-idei.eu" target="_blank">
+                    <Button justIcon simple color="facebook" href="#" target="_blank">
                       <EmailIcon className={classes.EmailIcon}/>
                     </Button>
-            </CardFooter>
+            </CardFooter> */}
           </Card>
         </GridItem>
         <GridItem md={3} sm={3}>
         <Card profile plain>
             <CardAvatar profile plain>
                 <img
-                  src="/img/team/right.jpg"
+                  src="/img/team/catalin.jpg"
                   alt="Pic Catalin"
                   className={classes.img}
                 />
             </CardAvatar>
             <CardBody plain>
               <h4 className={classes.cardTitle}>Catalin Sirbu</h4>
-              <h6 className={classes.textMuted}>WEB DESIGNER</h6>
+              <h6 className={classes.textMuted}>Head of Design</h6>
             </CardBody>
             <CardFooter className={classes.justifyContent}>
-            <Button justIcon simple color="linkedin" href="https://ro.linkedin.com/in/ralucaciobotaru" target="_blank">
-                      <i className="fab fa-linkedin" />
-                    </Button>
-                    <Button justIcon simple color="facebook" href="https://facebook.com/ciobotaru.raluca/" target="_blank">
-                      <i className="fab fa-facebook-square" />
-                    </Button>
-                    <Button justIcon simple color="youtube" href="https://instagram.com/r.l.k.208?igshid=Mzc1MmZhNjY=" target="_blank">
-                      <i className="fab fa-instagram" />
-                    </Button>
-                    <Button justIcon simple color="facebook" href="mailto:raluca@asociatia-idei.eu" target="_blank">
-                      <EmailIcon className={classes.EmailIcon}/>
-                    </Button>
+              <Button justIcon simple color="linkedin" href="https://www.linkedin.com/in/sirbu-catalin-12262343/" target="_blank">
+                <i className="fab fa-linkedin" />
+              </Button>
+              <Button justIcon simple color="behance" href="https://www.behance.net/catalinssirbu" target="_blank">
+                <i className="fab fa-behance"/>
+              </Button>
             </CardFooter>
           </Card>
         </GridItem>
@@ -133,9 +126,10 @@ export default function SectionTeam() {
             </CardAvatar>
             <CardBody plain>
               <h4 className={classes.cardTitle}>Claudia Mihaela Calciu</h4>
-              <h6 className={classes.textMuted}>PROJECTS SPECIALIST</h6>
+              <h6 className={classes.textMuted}>Co-founder</h6>
+              <h6 className={classes.textMuted}>EU projects Specialist</h6>
             </CardBody>
-            <CardFooter className={classes.justifyContent}>
+            {/* <CardFooter className={classes.justifyContent}>
             <Button justIcon simple color="linkedin" href="https://ro.linkedin.com/in/ralucaciobotaru" target="_blank">
                       <i className="fab fa-linkedin" />
                     </Button>
@@ -148,7 +142,7 @@ export default function SectionTeam() {
                     <Button justIcon simple color="facebook" href="mailto:raluca@asociatia-idei.eu" target="_blank">
                       <EmailIcon className={classes.EmailIcon}/>
                     </Button>
-            </CardFooter>
+            </CardFooter> */}
           </Card>
         </GridItem>
       </GridContainer>

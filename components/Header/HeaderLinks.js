@@ -110,7 +110,7 @@ export default function HeaderLinks(props) {
           className={
             classes.navLink
           }
-          href="/#:~:text=PROJECTS%20SPECIALIST-,Projects,-ECO%2DTOURISM"
+          href="/#:~:text=society%20at%20large.-,Projects,-We%20actively%20engage"
         >
           <ViewQuilt className={classes.socialIcons} />
           Projects

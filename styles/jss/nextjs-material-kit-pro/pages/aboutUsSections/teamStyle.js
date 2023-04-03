@@ -13,14 +13,14 @@ const teamStyle = {
   title,
   description: {
     ...description,
-    marginBottom: "80px"
+    marginBottom: "40px"
   },
   cardTitle,
   cardDescription: {
     color: grayColor[0]
   },
   team: {
-    padding: "80px 0px"
+    padding: "50px 0px"
   },
   textCenter: {
     textAlign: "center!important"
