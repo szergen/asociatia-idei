@@ -113,7 +113,7 @@ export default function SectionFutureEvents({ ...rest }) {
                       <p className={classes.description}>
                        The Youth fit for 55 project, a collaborative effort between 6 organizations from 5 partner countries, has officially kicked off. During a recent meeting in Bordeaux, France, the consortium came together to discuss the project's rationale and plan their next steps.
                       <br/>
-                      Stay tuned for updates on our progress and follow the hashtag <Success><b>#YouthFitFor55</b></Success> for more information.
+                      Stay tuned for updates on our progress and follow the hashtag <b>#YouthFitFor55</b> for more information.
                       </p>
                     </CardBody>
                   </Card>
