@@ -32,11 +32,12 @@
     "react-animate-on-scroll": "2.1.5",
     "react-datetime": "3.1.1",
     "react-dom": ">=16.0.0",
+    "react-ga4": "^2.1.0",
     "react-image-gallery": "1.2.9",
     "react-slick": "0.29.0",
     "react-tagsinput": "3.19.0",
     "sass": "1.54.4",
-    "webpack": "5.74.0"
+    "webpack": "^5.77.0"
   },
   "peerDependencies": {
     "react": ">=16.0.0",

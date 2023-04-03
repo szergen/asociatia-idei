@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
-import Script from "next/script";
+import ReactGA from "react-ga4";
 
 import PageChange from "/components/PageChange/PageChange.js";
 
@@ -48,6 +48,7 @@ export default class MyApp extends App {
   }
   render() {
     const { Component, pageProps } = this.props;
+    ReactGA.initialize("G-ZBS90CC0FP");
 
     return (
       <React.Fragment>
@@ -56,24 +57,6 @@ export default class MyApp extends App {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-      <Script
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=G-ZBS90CC0FP`}
-      />
-      <Script
-
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-ZBS90CC0FP', {
-              page_path: window.location.pathname,
-            });
-          `,
-        }}
-      />
           <title>Asociatia IDEI</title>
         </Head>
         <Component {...pageProps} />
