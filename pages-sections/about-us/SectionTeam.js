@@ -104,6 +104,7 @@ export default function SectionTeam() {
             <CardBody plain>
               <h4 className={classes.cardTitle}>Catalin Sirbu</h4>
               <h6 className={classes.textMuted}>Head of Design</h6>
+              <h6 className={classes.textMuted}></h6>
             </CardBody>
             <CardFooter className={classes.justifyContent}>
               <Button justIcon simple color="linkedin" href="https://www.linkedin.com/in/sirbu-catalin-12262343/" target="_blank">
@@ -119,7 +120,7 @@ export default function SectionTeam() {
         <Card profile plain>
             <CardAvatar profile plain>
                 <img
-                  src="/img/team/right.jpg"
+                  src="/img/team/claudia.jpg"
                   alt="Pic Claudia"
                   className={classes.img}
                 />
@@ -129,8 +130,8 @@ export default function SectionTeam() {
               <h6 className={classes.textMuted}>Co-founder</h6>
               <h6 className={classes.textMuted}>EU projects Specialist</h6>
             </CardBody>
-            {/* <CardFooter className={classes.justifyContent}>
-            <Button justIcon simple color="linkedin" href="https://ro.linkedin.com/in/ralucaciobotaru" target="_blank">
+            <CardFooter className={classes.justifyContent}>
+            {/* <Button justIcon simple color="linkedin" href="https://ro.linkedin.com/in/ralucaciobotaru" target="_blank">
                       <i className="fab fa-linkedin" />
                     </Button>
                     <Button justIcon simple color="facebook" href="https://facebook.com/ciobotaru.raluca/" target="_blank">
@@ -138,11 +139,11 @@ export default function SectionTeam() {
                     </Button>
                     <Button justIcon simple color="youtube" href="https://instagram.com/r.l.k.208?igshid=Mzc1MmZhNjY=" target="_blank">
                       <i className="fab fa-instagram" />
-                    </Button>
-                    <Button justIcon simple color="facebook" href="mailto:raluca@asociatia-idei.eu" target="_blank">
+                    </Button> */}
+                    <Button justIcon simple color="facebook" href="mailto:claudia@asociatia-idei.eu" target="_blank">
                       <EmailIcon className={classes.EmailIcon}/>
                     </Button>
-            </CardFooter> */}
+            </CardFooter>
           </Card>
         </GridItem>
       </GridContainer>

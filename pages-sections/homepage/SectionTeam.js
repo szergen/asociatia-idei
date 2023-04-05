@@ -55,7 +55,7 @@ export default function SectionTeam() {
                 </GridItem>
                 <GridItem xs={12} sm={7} md={7}>
                   <CardBody plain>
-                    <h4 className={classes.cardTitle}>CAPACITY BUILDING</h4>
+                    <h4 className={classes.cardTitle}>Capacity Building</h4>
                     {/* <Muted>
                       <h6 className={classes.cardCategory}>EU PROJECTS EXPERT</h6>
                     </Muted> */}

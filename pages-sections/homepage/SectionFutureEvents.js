@@ -64,11 +64,11 @@ export default function SectionFutureEvents({ ...rest }) {
                 <GridItem xs={12} sm={4} md={4}>
                   <Card plain blog className={classes.cardEvents}>
                     <CardHeader plain image>
-                        <img src="/img/projects/yetti.jpg" alt="..." />
+                        <img src="/img/projects/yetti_2.jpg" alt="..." />
                       <div
                         className={classes.coloredShadow}
                         style={{
-                          backgroundImage: "url('/img/projects/yetti.jpg')",
+                          backgroundImage: "url('/img/projects/yetti_2.jpg')",
                           opacity: "1"
                         }}
                       />

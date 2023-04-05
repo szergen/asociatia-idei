@@ -30,7 +30,8 @@ const teamStyle = {
     height: "auto"
   },
   textMuted: {
-    color: grayColor[7] + " !important"
+    color: grayColor[7] + " !important",
+    minHeight: "10px"
   },
   justifyContent: {
     justifyContent: "center!important"
