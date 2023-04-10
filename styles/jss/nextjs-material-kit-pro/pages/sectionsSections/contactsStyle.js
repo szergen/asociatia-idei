@@ -63,6 +63,21 @@ const contactsSection = {
     },
     padding: "80px 0"
   },
+  errorMsg: {
+    background: "white",
+    padding: "20px",
+    color: "red",
+    fontSize: "12px",
+    fontWeight: "400",
+    lineHeight: "1.5em",
+    marginTop: "0",
+    marginBottom: "0",
+    textAlign: "left",
+    width: "100%",
+    position: "absolute",
+    top: "0px",
+    left: "0px",
+  },
   notification: {
     position: "absolute",
     textAlign: "left",

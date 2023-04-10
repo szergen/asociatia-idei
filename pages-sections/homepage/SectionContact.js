@@ -1,6 +1,8 @@
 import React, {useRef, useState} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
+import Joi from 'joi-browser';
+// import ReactJoiValidations from 'react-joi-validation'
 // import Checkbox from "@material-ui/core/Checkbox";
 // import FormControlLabel from "@material-ui/core/FormControlLabel";
 // @material-ui/icons
@@ -8,8 +10,6 @@ import PinDrop from "@material-ui/icons/PinDrop";
 import emailjs from '@emailjs/browser';
 import Check from "@material-ui/icons/Check";
 import Warning from "@material-ui/icons/Warning";
-// import Phone from "@material-ui/icons/Phone";
-// import Check from "@material-ui/icons/Check";
 // core components
 import GridContainer from "/components/Grid/GridContainer.js";
 import GridItem from "/components/Grid/GridItem.js";
@@ -26,43 +26,77 @@ import Clearfix from "/components/Clearfix/Clearfix.js";
 import contactsStyle from "/styles/jss/nextjs-material-kit-pro/pages/sectionsSections/contactsStyle.js";
 
 const useStyles = makeStyles(contactsStyle);
+// ReactJoiValidations.setJoi(Joi);
 
-export default function SectionContact({ ...rest }) {
-  // const [checked, setChecked] = React.useState([]);
-  // const handleToggle = (value) => {
-  //   const currentIndex = checked.indexOf(value);
-  //   const newChecked = [...checked];
-  //   if (currentIndex === -1) {
-  //     newChecked.push(value);
-  //   } else {
-  //     newChecked.splice(currentIndex, 1);
-  //   }
-  //   setChecked(newChecked);
-  // };
+const schema = {
+  from_first_name: Joi.string().required(),
+  from_last_name: Joi.string().required(),
+  email: Joi.string().email().required(),
+  message: Joi.string().required(),
+};
+
+export default function SectionContact({ ...props }) {
   const classes = useStyles();
   const form = useRef();
   const [formSubmited, setFormSubmited] = useState(false);
   const [notification, setNotification] = useState(null);
+  const [justLanded, setJustLanded] = useState(true);
+  const [formData, setFormData] = useState({
+    from_first_name: '',
+    from_last_name: '',
+    email: '',
+    message: '',
+    errors: {}
+  });
+  
+  const validatePropery = (name, value, schema) => {
+    const obj = {
+        [name]: value
+    };
+    const fieldSchema = {
+        [name]: schema[name]
+    };
+    //return result
+    const result = Joi.validate(obj, fieldSchema);
+    setFormData({
+      ...formData,
+      [name]: value,
+      errors: {
+        ...formData.errors,
+        [name]: result.error?.details[0]?.message
+      }
+    })
+    if(justLanded) {
+      setJustLanded(false);
+    }
+    // result.error === null -> valid
+}
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     // emailjs.sendForm Params: serviceId, templateId, templateParams, userId
-    emailjs.sendForm(
-      'service_hnqz52d', 
-      'contact_form',
-      form.current,
-      'eMC5J00XgHPI0IgWK'
-    ).then((result) => {
-      setFormSubmited(true);
-      setNotification(successAlert);
-      console.log(result.text);
-      }, (error) => {
-           setFormSubmited(true);
-           setNotification(warningAlert);
-          console.log(error.text);
-      });
+    if(!checkErrors(formData.errors)) {
+      emailjs.sendForm(
+        'service_hnqz52d', 
+        'contact_form',
+        form.current,
+        'eMC5J00XgHPI0IgWK'
+      ).then((result) => {
+        setFormSubmited(true);
+        setNotification(successAlert);
+        console.log(result.text);
+        }, (error) => {
+             setFormSubmited(true);
+             setNotification(warningAlert);
+            console.log(error.text);
+        });
+    }
   };
+
+  const checkErrors = (errors) => {
+    // check if the errors object has any null values
+    return Object.values(errors).some(err => err !== null && err !== undefined);
+  }
 
   const successAlert = (
     <>
@@ -94,9 +128,8 @@ export default function SectionContact({ ...rest }) {
       />
   )
 
-
   return (
-    <div className="cd-section" {...rest}>
+    <div className="cd-section" {...props}>
       <div
         className={classes.contacts + " " + classes.section}
         style={{ backgroundImage: "url('/img/contact/bucharest.jpg')" }}
@@ -134,40 +167,48 @@ export default function SectionContact({ ...rest }) {
                     <GridContainer>
                       <GridItem xs={12} sm={6} md={6}>
                         <CustomInput
-                          labelText="First Name"
+                          labelText="*First Name"
                           formControlProps={{
                             fullWidth: true
                           }}
                           inputProps={{
                             name: 'from_first_name',
+                            onChange: (e) => validatePropery(e.target.name, e.target.value, schema),
+                            onBlur: (e) => validatePropery(e.target.name, e.target.value, schema),
+                            error: formData.errors.from_first_name
                           }}
                         />
+                       {/* <span className={classes.errorMsg}>{formData.errors?.from_first_name?.replace("from_first_name", "First Name")}</span> */}
                       </GridItem>
                       <GridItem xs={12} sm={6} md={6}>
                         <CustomInput
-                          labelText="Last Name"
+                          labelText="*Last Name"
                           formControlProps={{
                             fullWidth: true
                           }}
                           inputProps={{
                             name: 'from_last_name',
+                            onChange: (e) => validatePropery(e.target.name, e.target.value, schema),
+                            onBlur: (e) => validatePropery(e.target.name, e.target.value, schema),
+                            error: formData.errors.from_last_name,
                           }}
                         />
                       </GridItem>
                     </GridContainer>
                     <CustomInput
-                      labelText="Email Address"
-                      id="email"
+                      labelText="*Email Address"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
                         name: 'email',
+                        onChange: (e) => validatePropery(e.target.name, e.target.value, schema),
+                        onBlur: (e) => validatePropery(e.target.name, e.target.value, schema),
+                        error: formData.errors.email
                       }}
                     />
                     <CustomInput
-                      labelText="Your Message"
-                      id="message"
+                      labelText="*Your Message"
                       formControlProps={{
                         fullWidth: true
                       }}
@@ -175,35 +216,28 @@ export default function SectionContact({ ...rest }) {
                         multiline: true,
                         rows: 5,
                         name: 'message',
+                        onChange: (e) => validatePropery(e.target.name, e.target.value, schema),
+                        onBlur: (e) => validatePropery(e.target.name, e.target.value, schema),
+                        error: formData.errors.message
                       }}
                     />
                   </CardBody>
                   <CardFooter className={classes.justifyContentBetween}>
-                    {/* <FormControlLabel
-                      control={
-                        <Checkbox
-                          tabIndex={-1}
-                          onClick={() => handleToggle(1)}
-                          checkedIcon={
-                            <Check className={classes.checkedIcon} />
-                          }
-                          icon={<Check className={classes.uncheckedIcon} />}
-                          classes={{
-                            checked: classes.checked,
-                            root: classes.checkRoot
-                          }}
-                        />
-                      }
-                      classes={{ label: classes.label }}
-                      label="I'm not a robot"
-                    /> */}
-                    <Button type="submit" color="idei" className={classes.pullRight}>
+                    <Button type="submit" color="idei" className={classes.pullRight} disabled={justLanded || checkErrors(formData.errors)}>
                       Send Message
                     </Button>
                   </CardFooter>
                 </form>
               </Card>
               <div className={classes.notification}>
+                {checkErrors(formData.errors) && (
+                  <span className={classes.errorMsg}>
+                  <p>{formData.errors?.from_first_name?.replace("from_first_name", "First Name")}</p>
+                  <p>{formData.errors?.from_last_name?.replace("from_last_name", "Last Name")}</p>
+                  <p>{formData.errors?.email?.replace("email", "Email")}</p>
+                  <p>{formData.errors?.message?.replace("message", "Message")}</p>
+                  </span>
+                )}
               {formSubmited && notification}
               </div>
             </GridItem>
