@@ -82,7 +82,7 @@ export default function Homepage({ ...rest }) {
           <SectionFutureEvents />
           {/* <SectionPastEvents /> */}
           {/* <SectionBlogPosts /> */}
-          {/* <SectionContact /> */}
+          <SectionContact />
         </div>
       </div>
       <Footer
