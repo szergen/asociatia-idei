@@ -1,0 +1,23 @@
+{
+  "name": "@asociatia-idei/elearning",
+  "version": "1.0.0",
+  "private": true,
+  "description": "OpenEDX customizations and theme for Asociatia IDEI e-learning platform",
+  "scripts": {
+    "build": "npm run build:theme",
+    "build:theme": "npm run build --workspace=@asociatia-idei/shared-ui && npm run compile:sass",
+    "compile:sass": "sass theme/lms/static/sass:theme/lms/static/css && sass theme/cms/static/sass:theme/cms/static/css",
+    "watch": "sass --watch theme/lms/static/sass:theme/lms/static/css & sass --watch theme/cms/static/sass:theme/cms/static/css",
+    "docker:build": "docker-compose -f docker/docker-compose.yml build",
+    "docker:up": "docker-compose -f docker/docker-compose.yml up -d",
+    "docker:down": "docker-compose -f docker/docker-compose.yml down"
+  },
+  "dependencies": {
+    "@asociatia-idei/shared-ui": "*",
+    "@asociatia-idei/shared-utils": "*",
+    "@asociatia-idei/shared-types": "*"
+  },
+  "devDependencies": {
+    "sass": "^1.69.0"
+  }
+}

@@ -1,0 +1,124 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: openedx-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+
+  mongodb:
+    image: mongo:4.4
+    container_name: openedx-mongodb
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - "27017:27017"
+    restart: unless-stopped
+
+  redis:
+    image: redis:6.2
+    container_name: openedx-redis
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  elasticsearch:
+    image: elasticsearch:7.17.0
+    container_name: openedx-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+    restart: unless-stopped
+
+  openedx-lms:
+    image: overhangio/openedx:olive.4
+    container_name: openedx-lms
+    environment:
+      - OPENEDX_ENV=${OPENEDX_ENV}
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MONGODB_HOST=mongodb
+      - REDIS_HOST=redis
+      - ELASTICSEARCH_HOST=elasticsearch
+    volumes:
+      - lms_data:/openedx/data
+      - ../theme:/openedx/themes/custom
+      - ../configurations:/openedx/config
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+      - mongodb
+      - redis
+      - elasticsearch
+    restart: unless-stopped
+    command: >
+      sh -c "
+        dockerize -wait tcp://mysql:3306 -timeout 60s &&
+        dockerize -wait tcp://mongodb:27017 -timeout 60s &&
+        dockerize -wait tcp://redis:6379 -timeout 60s &&
+        python manage.py lms migrate &&
+        python manage.py lms collectstatic --noinput &&
+        python manage.py lms runserver 0.0.0.0:8000
+      "
+
+  openedx-cms:
+    image: overhangio/openedx:olive.4
+    container_name: openedx-cms
+    environment:
+      - OPENEDX_ENV=${OPENEDX_ENV}
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MONGODB_HOST=mongodb
+      - REDIS_HOST=redis
+      - ELASTICSEARCH_HOST=elasticsearch
+    volumes:
+      - cms_data:/openedx/data
+      - ../theme:/openedx/themes/custom
+      - ../configurations:/openedx/config
+    ports:
+      - "8001:8001"
+    depends_on:
+      - mysql
+      - mongodb
+      - redis
+      - elasticsearch
+    restart: unless-stopped
+    command: >
+      sh -c "
+        dockerize -wait tcp://mysql:3306 -timeout 60s &&
+        dockerize -wait tcp://mongodb:27017 -timeout 60s &&
+        dockerize -wait tcp://redis:6379 -timeout 60s &&
+        python manage.py cms migrate &&
+        python manage.py cms collectstatic --noinput &&
+        python manage.py cms runserver 0.0.0.0:8001
+      "
+
+volumes:
+  mysql_data:
+  mongodb_data:
+  redis_data:
+  elasticsearch_data:
+  lms_data:
+  cms_data:

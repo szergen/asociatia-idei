@@ -1,0 +1,31 @@
+{
+  "name": "@asociatia-idei/website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Main website for Asociatia IDEI with Builder.io CMS and shop functionality",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "@builder.io/react": "^3.0.0",
+    "@builder.io/sdk": "^2.0.0",
+    "@asociatia-idei/shared-ui": "*",
+    "@asociatia-idei/shared-utils": "*",
+    "@asociatia-idei/shared-types": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^5.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.0.0"
+  }
+}
