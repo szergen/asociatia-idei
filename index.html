@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asociatia IDEI - Under Construction</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        margin: 0 auto;
+      }
+      h1 {
+        color: white;
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 0;
+      }
+      h2 {
+        color: white;
+        text-align: center;
+      }
+      .container {
+        background-image: url("idei-hero-image.jpg");
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+      }
+      .inConstruction {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        border-radius: 40px;
+        width: 50%;
+        height: 50%;
+        justify-content: center;
+        align-items: center;
+        margin-left: 40px;
+      }
+      .img {
+        position: relative;
+        top: 10px;
+      }
+      @media screen and (max-width: 768px) {
+        .inConstruction {
+          width: 100%;
+          margin: 20px;
+        }
+
+        h2 {
+          padding: 30px;
+        }
+
+        .img {
+          line-height: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <div class="inConstruction">
+        <h1>This site is currently under construction.</h1>
+        <h2>
+          Meanwhile, check our activity on
+          <a href="https://www.facebook.com/asociatia.idei" target="_blank"
+            ><img src="icons8-facebook-96.png" width="40px" class="img"
+          /></a>
+        </h2>
+      </div>
+    </section>
+  </body>
+</html>
