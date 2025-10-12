@@ -5,18 +5,18 @@ import Layout from "../../components/Layout";
 import ProjectCard from "../../components/ProjectCard";
 import { BuilderSection, useBuilderList } from "../../builder";
 
-interface ProjectsPageProps {
+interface EventsPageProps {
   headerSection?: any;
   filterSection?: any;
 }
 
-const ProjectsPage: React.FC<ProjectsPageProps> = ({
+const EventsPage: React.FC<EventsPageProps> = ({
   headerSection,
   filterSection,
 }) => {
   // Use Builder.io hook to fetch projects data
   const {
-    data: projects,
+    data: events,
     loading,
     error,
   } = useBuilderList("project", {
@@ -26,27 +26,27 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({
     },
     limit: 20,
   });
-  console.log("DEBUG: Projects data:", projects);
+  console.log("DEBUG: Events data:", events);
 
   return (
     <Layout>
       <Head>
-        <title>Proiecte - Asociația IDEI</title>
+        <title>Evenimente - Asociația IDEI</title>
         <meta
           name="description"
-          content="Descoperă proiectele prin care Asociația IDEI face diferența în comunitate și promovează dezvoltarea durabilă."
+          content="Descoperă evenimentele prin care Asociația IDEI face diferența în comunitate și promovează dezvoltarea durabilă."
         />
       </Head>
 
       {/* Header Section - Builder.io content or fallback */}
       {headerSection ? (
-        <BuilderSection content={headerSection} className="projects-header" />
+        <BuilderSection content={headerSection} className="events-header" />
       ) : (
         <section className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-5xl font-bold mb-6">Proiectele Noastre</h1>
+            <h1 className="text-5xl font-bold mb-6">Evenimentele Noastre</h1>
             <p className="text-xl max-w-3xl mx-auto">
-              Descoperă cum facem diferența în comunitate prin proiecte
+              Descoperă cum facem diferența în comunitate prin evenimente
               inovatoare și inițiative pentru dezvoltarea durabilă.
             </p>
           </div>
@@ -55,10 +55,10 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({
 
       {/* Filter Section - Builder.io content */}
       {filterSection && (
-        <BuilderSection content={filterSection} className="projects-filter" />
+        <BuilderSection content={filterSection} className="events-filter" />
       )}
 
-      {/* Projects Grid */}
+      {/* Events Grid */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           {loading ? (
@@ -74,22 +74,22 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({
           ) : error ? (
             <div className="text-center py-16">
               <p className="text-gray-600">
-                A apărut o eroare la încărcarea proiectelor.
+                A apărut o eroare la încărcarea evenimentelor.
               </p>
             </div>
-          ) : projects.length > 0 ? (
+          ) : events.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project: any) => (
-                <ProjectCard key={project.id} project={project} />
+              {events.map((event: any) => (
+                <ProjectCard key={event.id} project={event} />
               ))}
             </div>
           ) : (
             <div className="text-center py-16">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Încă nu avem proiecte
+                Încă nu avem evenimente
               </h2>
               <p className="text-gray-600">
-                Proiectele vor fi disponibile în curând.
+                Evenimentele vor fi disponibile în curând.
               </p>
             </div>
           )}
@@ -104,7 +104,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({
           </h2>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
             Căutăm mereu oameni pasionați care să se alăture misiunii noastre.
-            Descoperă cum poți contribui la proiectele noastre.
+            Descoperă cum poți contribui la evenimentele noastre.
           </p>
           <a
             href="/implica-te"
@@ -149,4 +149,4 @@ export const getStaticProps: GetStaticProps = async ({ preview }) => {
   }
 };
 
-export default ProjectsPage;
+export default EventsPage;
