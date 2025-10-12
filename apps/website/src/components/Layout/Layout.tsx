@@ -1,6 +1,8 @@
 import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "../Header";
+import Footer from "../Footer";
+import { layoutStyles } from "./Layout.styles";
+import styles from "./Layout.module.scss";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -16,9 +18,11 @@ const Layout: React.FC<LayoutProps> = ({
   showFooter = true,
 }) => {
   return (
-    <div className={`min-h-screen flex flex-col ${className}`}>
+    <div className={`${layoutStyles.container} ${styles.layout} ${className}`}>
       {showHeader && <Header />}
-      <main className="flex-grow">{children}</main>
+      <main className={`${layoutStyles.main} ${styles.layout__main}`}>
+        {children}
+      </main>
       {showFooter && <Footer />}
     </div>
   );

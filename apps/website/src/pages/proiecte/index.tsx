@@ -2,6 +2,7 @@ import React from "react";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import Layout from "../../components/Layout";
+import ProjectCard from "../../components/ProjectCard";
 import { BuilderSection, useBuilderList } from "../../builder";
 
 interface ProjectsPageProps {
@@ -79,72 +80,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({
           ) : projects.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project: any) => (
-                <div
-                  key={project.id}
-                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
-                >
-                  {project.data.image && (
-                    <img
-                      src={project.data.image}
-                      alt={project.data.title}
-                      className="w-full h-48 object-cover"
-                    />
-                  )}
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-xl font-semibold">
-                        {project.data.title}
-                      </h3>
-                      {project.data.status && (
-                        <span
-                          className={`px-2 py-1 text-xs rounded-full ${
-                            project.data.status === "active"
-                              ? "bg-green-100 text-green-800"
-                              : "bg-gray-100 text-gray-800"
-                          }`}
-                        >
-                          {project.data.status === "active"
-                            ? "Activ"
-                            : "Finalizat"}
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-gray-600 mb-4 line-clamp-3">
-                      {project.data.description}
-                    </p>
-                    {project.data.tags && project.data.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.data.tags.map((tag: string, index: number) => (
-                          <span
-                            key={index}
-                            className="bg-blue-100 text-blue-800 px-2 py-1 text-xs rounded"
-                          >
-                            {tag.tagName}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                    <a
-                      href={`/proiecte/${project.data.slug || project.id}`}
-                      className="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center"
-                    >
-                      Citește mai mult
-                      <svg
-                        className="h-4 w-4 ml-1"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
+                <ProjectCard key={project.id} project={project} />
               ))}
             </div>
           ) : (

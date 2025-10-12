@@ -1,0 +1,15 @@
+export const projectCardStyles = {
+  card: "bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow",
+  image: "w-full h-48 object-cover",
+  content: "p-6",
+  header: "flex items-center justify-between mb-2",
+  title: "text-xl font-semibold",
+  statusBadge: "px-2 py-1 text-xs rounded-full",
+  statusActive: "bg-green-100 text-green-800",
+  statusCompleted: "bg-gray-100 text-gray-800",
+  description: "text-gray-600 mb-4 line-clamp-3",
+  tagsContainer: "flex flex-wrap gap-2 mb-4",
+  tag: "bg-blue-100 text-blue-800 px-2 py-1 text-xs rounded",
+  link: "text-blue-600 hover:text-blue-700 font-medium inline-flex items-center",
+  linkIcon: "h-4 w-4 ml-1",
+};

@@ -1,0 +1,26 @@
+// Layout Component Custom Styles
+// These styles complement the Tailwind classes
+// Add your custom styles here as needed
+
+.layout {
+  position: relative;
+
+  // Example: Custom fade-in animation for page loads
+  // animation: fadeIn 0.3s ease-in;
+
+  // Example: Custom main content styles
+  // &__main {
+  //   min-height: calc(100vh - 200px);
+  //   transition: opacity 0.3s ease;
+  // }
+}
+
+// Example: Smooth scroll and page transitions
+// @keyframes fadeIn {
+//   from {
+//     opacity: 0;
+//   }
+//   to {
+//     opacity: 1;
+//   }
+// }
