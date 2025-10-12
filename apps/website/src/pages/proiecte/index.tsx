@@ -8,25 +8,26 @@ import { BuilderSection, useBuilderList } from "../../builder";
 interface ProjectsPageProps {
   headerSection?: any;
   filterSection?: any;
+  initialProjects?: any[];
 }
 
 const ProjectsPage: React.FC<ProjectsPageProps> = ({
   headerSection,
   filterSection,
+  initialProjects = [],
 }) => {
-  // Use Builder.io hook to fetch projects data
+  // Use Builder.io hook to fetch project pages (not content model)
   const {
     data: projects,
     loading,
     error,
-  } = useBuilderList("project", {
-    query: {
-      // Remove the data.type filter since we're using the project model directly
-      // "data.published": true,
-    },
+  } = useBuilderList("project-page", {
     limit: 20,
   });
   console.log("DEBUG: Projects data:", projects);
+
+  // Use initialProjects as fallback if available
+  const displayProjects = projects.length > 0 ? projects : initialProjects;
 
   return (
     <Layout>
@@ -77,9 +78,9 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({
                 A apărut o eroare la încărcarea proiectelor.
               </p>
             </div>
-          ) : projects.length > 0 ? (
+          ) : displayProjects.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project: any) => (
+              {displayProjects.map((project: any) => (
                 <ProjectCard key={project.id} project={project} />
               ))}
             </div>
@@ -119,32 +120,42 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({
 };
 
 export const getStaticProps: GetStaticProps = async ({ preview }) => {
+  const { builder } = await import("../../builder");
+
   try {
-    // This could also use getBuilderPageData for sections
-    const [headerSection, filterSection] = await Promise.all([
+    // Fetch project pages and optional sections in parallel
+    const [headerSection, filterSection, projectPages] = await Promise.all([
       // getBuilderPageData('section', '/projects-header', { includeUnpublished: preview }),
+      Promise.resolve(null), // Placeholder - will use fallback content
       // getBuilderPageData('section', '/projects-filter', { includeUnpublished: preview }),
       Promise.resolve(null), // Placeholder - will use fallback content
-      Promise.resolve(null), // Placeholder - will use fallback content
+      // Fetch all project pages from Builder.io
+      builder.getAll("project-page", {
+        limit: 20,
+        options: {
+          includeRefs: true,
+          noTargeting: true,
+        },
+      }),
     ]);
 
     return {
       props: {
         headerSection,
         filterSection,
+        initialProjects: projectPages || [],
       },
-      //   revalidate: 300, // Revalidate every 5 minutes
-      revalidate: 1, // Revalidate every 5 minutes
+      revalidate: 60, // Revalidate every minute
     };
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error fetching projects page content:", error);
     return {
       props: {
         headerSection: null,
         filterSection: null,
+        initialProjects: [],
       },
-      //   revalidate: 300,
-      revalidate: 1,
+      revalidate: 60,
     };
   }
 };

@@ -7,6 +7,7 @@ interface ProjectTag {
 }
 
 interface ProjectData {
+  url: any;
   image?: string;
   title: string;
   status?: "active" | "completed";
@@ -60,7 +61,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           </div>
         )}
         <a
-          href={`/proiecte/${project.data.slug || project.id}`}
+          href={`${project.data.url}`}
           className={`${projectCardStyles.link} ${styles.card__link}`}
         >
           Citește mai mult

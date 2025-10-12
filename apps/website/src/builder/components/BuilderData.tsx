@@ -115,9 +115,11 @@ export const useBuilderList = (model: string = "data", options: any = {}) => {
       try {
         setLoading(true);
         const content = await builder.getAll(model, {
+          ...options,
           options: {
             includeRefs: true,
-            ...options,
+            noTargeting: true,
+            ...(options?.options || {}),
           },
         });
 
