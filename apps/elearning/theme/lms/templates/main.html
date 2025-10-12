@@ -1,0 +1,40 @@
+## mako
+<%page expression_filter="h"/>
+<!DOCTYPE html>
+<html lang="${LANGUAGE_CODE}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%block name="title">
+            ${page_title | h} | ${settings.PLATFORM_NAME}
+        </%block>
+    </title>
+    
+    <%namespace name='static' file='static_content.html'/>
+    
+    <!-- Custom Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="${static.url('css/lms.css')}" />
+    
+    <!-- Tailwind CSS CDN (for utility classes) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <%block name="headextra"/>
+</head>
+<body class="${self.bodyclass()}">
+    <%block name="bodyclass"/>
+    
+    <%include file="header.html" />
+    
+    <main id="main" class="main-content">
+        <%block name="content">
+            ${self.body()}
+        </%block>
+    </main>
+    
+    <%include file="footer.html" />
+    
+    <%block name="js_extra"/>
+</body>
+</html>
+

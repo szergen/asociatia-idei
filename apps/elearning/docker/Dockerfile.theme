@@ -1,0 +1,18 @@
+# Dockerfile for building the custom theme
+FROM node:18-alpine AS theme-builder
+
+# Set working directory
+WORKDIR /app
+
+# Copy theme files
+COPY theme/ ./theme/
+COPY package.json ./
+
+# Install dependencies and build theme
+WORKDIR /app/theme
+RUN npm install && npm run build
+
+# Output stage
+FROM scratch
+COPY --from=theme-builder /app/theme /theme
+

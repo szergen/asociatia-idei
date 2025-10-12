@@ -2,6 +2,26 @@
 
 OpenEDX customizations and theme for the Asociatia IDEI e-learning platform, featuring shared components with the main website for consistent branding.
 
+## 🚀 Quick Start
+
+Get started in 5 minutes:
+
+```bash
+# Run the automated installer
+./install.sh
+
+# Or manually
+make dev-setup
+make start
+```
+
+Then access:
+
+- **LMS (Students)**: http://local.overhang.io:8000
+- **CMS (Instructors)**: http://studio.local.overhang.io:8001
+
+📖 **Full Setup Guide**: See [SETUP-GUIDE.md](./SETUP-GUIDE.md) for detailed instructions.
+
 ## 🎓 Features
 
 - **Custom OpenEDX Theme**: Matching main website design

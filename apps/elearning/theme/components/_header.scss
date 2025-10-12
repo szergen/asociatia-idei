@@ -1,0 +1,117 @@
+/**
+ * Header Component Styles
+ * Matching the website header design
+ */
+
+.idei-header {
+  background-color: $background;
+  box-shadow: $shadow;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  &__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: $spacing-md;
+  }
+
+  &__flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    font-size: 1.5rem;
+    font-weight: $font-weight-bold;
+    color: $primary-color;
+    text-decoration: none;
+    transition: $transition-base;
+
+    &:hover {
+      color: $primary-hover;
+    }
+  }
+
+  &__nav {
+    display: none;
+    align-items: center;
+    gap: 2rem;
+
+    @media (min-width: $breakpoint-md) {
+      display: flex;
+    }
+  }
+
+  &__nav-link {
+    color: $text-color;
+    text-decoration: none;
+    font-weight: $font-weight-medium;
+    transition: $transition-base;
+
+    &:hover {
+      color: $primary-color;
+    }
+
+    &--active {
+      color: $primary-color;
+    }
+  }
+
+  &__cta {
+    display: none;
+
+    @media (min-width: $breakpoint-md) {
+      display: flex;
+    }
+  }
+
+  &__cta-button {
+    background-color: $primary-color;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: $border-radius-lg;
+    text-decoration: none;
+    font-weight: $font-weight-medium;
+    transition: $transition-base;
+
+    &:hover {
+      background-color: $primary-hover;
+    }
+  }
+
+  &__mobile-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: $text-color;
+    cursor: pointer;
+    padding: $spacing-sm;
+
+    @media (min-width: $breakpoint-md) {
+      display: none;
+    }
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+
+  &__mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: $spacing-md;
+    padding: $spacing-lg 0;
+    border-top: 1px solid $border-color;
+
+    &--open {
+      display: flex;
+    }
+
+    @media (min-width: $breakpoint-md) {
+      display: none !important;
+    }
+  }
+}

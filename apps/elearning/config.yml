@@ -1,0 +1,55 @@
+# Tutor Configuration for Asociatia IDEI OpenEDX Platform
+# This file configures the OpenEDX deployment using Tutor
+
+# Platform Information
+PLATFORM_NAME: "Asociatia IDEI Learning"
+CONTACT_EMAIL: "contact@asociatia-idei.eu"
+PLATFORM_DESCRIPTION: "E-learning platform pentru Asociatia IDEI"
+
+# Domain Configuration
+LMS_HOST: "learning.asociatia-idei.eu"
+CMS_HOST: "cms.learning.asociatia-idei.eu"
+PREVIEW_LMS_HOST: "preview.learning.asociatia-idei.eu"
+
+# Theme Configuration
+OPENEDX_COMMON_VERSION: "open-release/palm.master"
+ENABLE_HTTPS: true
+
+# Custom Theme
+THEME_NAME: "idei-theme"
+
+# Language Settings
+LANGUAGE_CODE: "ro"
+LANGUAGES:
+  - ["ro", "Română"]
+  - ["en", "English"]
+
+# Features
+FEATURES:
+  ENABLE_DISCUSSION_SERVICE: true
+  ENABLE_MOBILE_REST_API: true
+  ENABLE_OAUTH2_PROVIDER: true
+  ENABLE_COMBINED_LOGIN_REGISTRATION: true
+  ENABLE_GRADE_DOWNLOADS: true
+  ENABLE_STUDENT_NOTES: true
+  ENABLE_INSTRUCTOR_ANALYTICS: true
+  CERTIFICATES_HTML_VIEW: true
+  CUSTOM_CERTIFICATE_TEMPLATES_ENABLED: true
+
+# Email
+EMAIL_BACKEND: "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST: "smtp.gmail.com"
+EMAIL_PORT: 587
+EMAIL_USE_TLS: true
+
+# Social Login (optional)
+ENABLE_OAUTH2_PROVIDER: true
+OAUTH_OIDC_ISSUER: "https://learning.asociatia-idei.eu/oauth2"
+
+# Storage
+ENABLE_S3: false
+ENABLE_WEB_PROXY: true
+
+# Custom Plugins
+RUN_CADDY: true
+CADDY_HTTP_PORT: 80

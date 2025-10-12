@@ -1,0 +1,31 @@
+{
+  "name": "idei-theme",
+  "version": "1.0.0",
+  "description": "Custom OpenEDX theme for Asociatia IDEI matching the main website design",
+  "author": "Asociatia IDEI",
+  "parent_theme": "edx-bootstrap",
+  "extends": "edx-bootstrap",
+  "lms": {
+    "templates": "lms/templates",
+    "static": {
+      "sass": "lms/static/sass",
+      "css": "lms/static/css",
+      "js": "lms/static/js",
+      "images": "lms/static/images"
+    }
+  },
+  "cms": {
+    "templates": "cms/templates",
+    "static": {
+      "sass": "cms/static/sass",
+      "css": "cms/static/css",
+      "js": "cms/static/js",
+      "images": "cms/static/images"
+    }
+  },
+  "features": {
+    "responsive": true,
+    "tailwind": true,
+    "shared_components": true
+  }
+}

@@ -1,0 +1,72 @@
+## mako <%page expression_filter="h"/> <%namespace name='static'
+file='static_content.html'/>
+
+<header class="idei-header">
+  <div class="idei-header__container">
+    <div class="idei-header__flex">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <a href="${reverse('home')}" class="idei-header__logo">
+          Asociația IDEI - Studio
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="idei-header__nav">
+        <a href="${reverse('home')}" class="idei-header__nav-link">Cursuri</a>
+        <a href="${reverse('library')}" class="idei-header__nav-link"
+          >Bibliotecă</a
+        >
+        % if user.is_authenticated:
+        <a
+          href="${get_online_help_info(online_help_token())['doc_url']}"
+          target="_blank"
+          class="idei-header__nav-link"
+        >
+          Ajutor
+        </a>
+        % endif
+      </nav>
+
+      <!-- User Menu -->
+      % if user.is_authenticated:
+      <div class="hidden md:flex">
+        <div class="user-menu">
+          <span class="idei-header__nav-link">${user.username}</span>
+          <a href="${reverse('logout')}" class="idei-header__nav-link"
+            >Logout</a
+          >
+        </div>
+      </div>
+      % endif
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button class="idei-header__mobile-toggle" id="mobile-menu-toggle">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("mobile-menu-toggle");
+    const menu = document.getElementById("mobile-menu");
+
+    if (toggle && menu) {
+      toggle.addEventListener("click", function () {
+        menu.classList.toggle("idei-header__mobile-menu--open");
+      });
+    }
+  });
+</script>

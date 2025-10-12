@@ -1,0 +1,43 @@
+/**
+ * Button Styles
+ */
+
+.btn-idei {
+  padding: 0.5rem 1rem;
+  border-radius: $border-radius;
+  font-weight: $font-weight-medium;
+  transition: $transition-base;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+
+  &--primary {
+    background-color: $primary-color;
+    color: white;
+
+    &:hover {
+      background-color: $primary-hover;
+    }
+  }
+
+  &--secondary {
+    background-color: $secondary-color;
+    color: white;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    border: 2px solid $primary-color;
+    color: $primary-color;
+
+    &:hover {
+      background-color: $primary-color;
+      color: white;
+    }
+  }
+}
