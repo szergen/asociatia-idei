@@ -24,11 +24,11 @@ import homepageStyle from "/styles/jss/nextjs-material-kit-pro/pages/homepageSty
 // Sections for this page
 // import SectionProduct from "/pages-sections/homepage/SectionProduct.js";
 import SectionTeam from "/pages-sections/homepage/SectionTeam.js";
-import SectionProjects from '/pages-sections/homepage/SectionProjects.js';
-import SectionFutureEvents from '/pages-sections/homepage/SectionFutureEvents.js';
+import SectionProjects from "/pages-sections/homepage/SectionProjects.js";
+import SectionFutureEvents from "/pages-sections/homepage/SectionFutureEvents.js";
 // import SectionPastEvents from '/pages-sections/homepage/SectionPastEvents.js';
 // import SectionBlogPosts from '/pages-sections/homepage/SectionBlogPosts.js';
-import SectionContact from '/pages-sections/homepage/SectionContact.js';
+import SectionContact from "/pages-sections/homepage/SectionContact.js";
 
 const useStyles = makeStyles(homepageStyle);
 
@@ -47,7 +47,7 @@ export default function Homepage({ ...rest }) {
         fixed
         changeColorOnScroll={{
           height: 300,
-          color: "idei"
+          color: "idei",
         }}
         {...rest}
       />
@@ -55,17 +55,20 @@ export default function Homepage({ ...rest }) {
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={6} md={6}>
-              <h1 className={classes.title}>SHAPING <br/>
-              <span className={classes.highlight}>FUTURE LEADERS</span> IN SUSTAINABILITY</h1>
+              <h1 className={classes.title}>
+                SHAPING <br />
+                <span className={classes.highlight}>FUTURE LEADERS</span> IN
+                SUSTAINABILITY
+              </h1>
               <h4>
-              We empower young people to become leaders in sustainability by providing educational opportunities and resources that foster a deep understanding of environmental stewardship, social responsibility and economic viability.
+                We empower young people to become leaders in sustainability by
+                providing educational opportunities and resources that foster a
+                deep understanding of environmental stewardship, social
+                responsibility and economic viability.
               </h4>
               <br />
               <Link href="/about-us">
-                <Button
-                  color="danger"
-                  size="lg"
-                >
+                <Button color="danger" size="lg">
                   <i className="fas fa-play" />
                   About Us
                 </Button>
@@ -91,17 +94,12 @@ export default function Homepage({ ...rest }) {
             <div className={classes.left}>
               <List className={classes.list}>
                 <ListItem className={classes.inlineBlock}>
-                  <Link
-                    href="/"
-                  >
+                  <Link href="/">
                     <span className={classes.block}>Asociatia IDEI</span>
                   </Link>
                 </ListItem>
                 <ListItem className={classes.inlineBlock}>
-                  <Link
-                    href="/about-us"
-                    target="_blank"
-                  >
+                  <Link href="/about-us" target="_blank">
                     <span className={classes.block}>About us</span>
                   </Link>
                 </ListItem>
@@ -116,8 +114,8 @@ export default function Homepage({ ...rest }) {
               </List>
             </div>
             <div className={classes.right}>
-              &copy; {1900 + new Date().getYear()}&nbsp;
-              Asociatia IDEI - Initiative si Demersuri Educationale si Inovatoare
+              123 &copy; {1900 + new Date().getYear()}&nbsp; Asociatia IDEI -
+              Initiative si Demersuri Educationale si Inovatoare
             </div>
           </div>
         }
