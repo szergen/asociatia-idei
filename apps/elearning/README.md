@@ -22,6 +22,8 @@ Then access:
 
 📖 **Full Setup Guide**: See [SETUP-GUIDE.md](./SETUP-GUIDE.md) for detailed instructions.
 
+⚠️ **Important**: When creating users, always use `./create-user-with-profile.sh` or `make create-user` to avoid login issues!
+
 ## 🎓 Features
 
 - **Custom OpenEDX Theme**: Matching main website design

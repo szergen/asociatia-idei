@@ -66,8 +66,37 @@ update-theme: ## Update and rebuild theme
 	cd theme && npm run build
 	tutor local restart lms cms
 
-create-superuser: ## Create a Django superuser
-	tutor local exec lms ./manage.py lms createsuperuser
+create-user: ## Create a user with profile (prevents login issues)
+	@./create-user-with-profile.sh
+
+create-superuser: ## Create a Django superuser (then creates profile)
+	@echo "Creating superuser..."
+	@tutor local exec lms ./manage.py lms createsuperuser
+	@echo ""
+	@echo "⚠️  IMPORTANT: Creating user profile to prevent login errors..."
+	@read -p "Enter the username you just created: " username; \
+	tutor local exec lms ./manage.py lms shell -c " \
+	from django.contrib.auth import get_user_model; \
+	from common.djangoapps.student.models import UserProfile; \
+	User = get_user_model(); \
+	user = User.objects.get(username='$$username'); \
+	profile, created = UserProfile.objects.get_or_create(user=user, defaults={'name': user.username}); \
+	print('✅ Profile created!' if created else 'Profile already exists') \
+	"
+	@echo "✅ User is ready to log in!"
+
+fix-user-profiles: ## Fix missing profiles for all users (fixes login errors)
+	@echo "Fixing user profiles..."
+	@tutor local exec lms ./manage.py lms shell -c " \
+	from django.contrib.auth import get_user_model; \
+	from common.djangoapps.student.models import UserProfile; \
+	User = get_user_model(); \
+	for user in User.objects.all(): \
+	    profile, created = UserProfile.objects.get_or_create(user=user, defaults={'name': user.username}); \
+	    print(f'{'✅ Created' if created else 'Already exists'}: {user.username}') \
+	"
+	@tutor local restart lms
+	@echo "✅ Done! Users can now log in."
 
 import-demo-course: ## Import the demo course
 	tutor local importdemocourse

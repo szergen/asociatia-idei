@@ -4,7 +4,6 @@ This plugin adds a custom theme with shared components from the main website.
 """
 
 import os
-from glob import glob
 from tutor import hooks
 
 # Plugin configuration
@@ -16,15 +15,6 @@ config = {
     "overrides": {},
 }
 
-# Templates directory
-TEMPLATES_DIR = os.path.join(
-    os.path.abspath(os.path.dirname(__file__)),
-    "templates"
-)
-
-# Add the plugin templates to the build
-hooks.Filters.ENV_TEMPLATE_ROOTS.add_item(TEMPLATES_DIR)
-
 # Add plugin configuration
 hooks.Filters.CONFIG_DEFAULTS.add_items(
     [
@@ -33,22 +23,17 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
     ]
 )
 
-# Override the default theme
+# Override the default theme settings
 hooks.Filters.CONFIG_OVERRIDES.add_items(
     [
         ("OPENEDX_COMPREHENSIVE_THEME_DIRS", ["/openedx/themes"]),
-        ("OPENEDX_DEFAULT_THEME_NAME", "idei-theme"),
+        ("OPENEDX_DEFAULT_SITE_THEME", "idei-theme"),
     ]
 )
 
-# Add custom initialization commands
-hooks.Filters.COMMANDS_INIT.add_item((
-    "lms",
-    ("idei-theme", "echo 'Installing Asociatia IDEI custom theme...'"),
-))
-
-hooks.Filters.COMMANDS_INIT.add_item((
-    "cms",
-    ("idei-theme", "echo 'Installing Asociatia IDEI custom theme...'"),
-))
+# Print a message when the plugin is loaded
+@hooks.Actions.PLUGIN_LOADED.add()
+def _print_plugin_loaded(plugin_name):
+    if plugin_name == "idei-theme":
+        print("✅ Asociatia IDEI theme plugin loaded successfully!")
 
