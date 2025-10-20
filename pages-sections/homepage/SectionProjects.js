@@ -76,6 +76,36 @@ export default function SectionProjects({ ...rest }) {
                 />
               </a>
             </GridItem>
+            <GridItem xs={12} sm={12} md={12}>
+              <Card
+                raised
+                background
+                style={{
+                  backgroundImage: "url('/img/projects/busola_media.jpg')",
+                }}
+              >
+                <CardBody background className={classes.longCard}>
+                  <h6 className={classes.cardCategory}>DIGITAL EDUCATION</h6>
+                  <a href="#pablito" onClick={(e) => e.preventDefault()}>
+                    <h3 className={classes.cardTitleWhite}>
+                      Busola Media pentru Tineri
+                    </h3>
+                    <h4 className={classes.cardTitleWhite}>
+                      Orientare în Lumea Digitală și <br />
+                      Dezvoltarea Competențelor Critice
+                    </h4>
+                  </a>
+                  <Button
+                    round
+                    color="idei"
+                    href="/img/projects/web_v2_optimized.pdf"
+                    target="_blank"
+                  >
+                    <Icon>content_copy</Icon> View Project
+                  </Button>
+                </CardBody>
+              </Card>
+            </GridItem>
             <GridItem xs={12} sm={6} md={6}>
               <Card
                 raised

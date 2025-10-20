@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: tutor-contrib-idei-theme
+Version: 1.0.0
+Summary: Custom OpenEDX theme for Asociatia IDEI
+Home-page: https://github.com/asociatia-idei/openedx-theme
+Author: Asociatia IDEI
+Author-email: contact@asociatia-idei.eu
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+
+UNKNOWN
+

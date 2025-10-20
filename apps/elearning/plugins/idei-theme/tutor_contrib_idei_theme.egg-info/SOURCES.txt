@@ -1,0 +1,10 @@
+README.md
+setup.py
+tutor_contrib_idei_theme.egg-info/PKG-INFO
+tutor_contrib_idei_theme.egg-info/SOURCES.txt
+tutor_contrib_idei_theme.egg-info/dependency_links.txt
+tutor_contrib_idei_theme.egg-info/entry_points.txt
+tutor_contrib_idei_theme.egg-info/requires.txt
+tutor_contrib_idei_theme.egg-info/top_level.txt
+tutorideitheme/__init__.py
+tutorideitheme/plugin.py
