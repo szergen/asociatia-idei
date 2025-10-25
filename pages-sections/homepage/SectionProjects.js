@@ -98,7 +98,7 @@ export default function SectionProjects({ ...rest }) {
                   <Button
                     round
                     color="idei"
-                    href="/img/projects/web_v2_optimized.pdf"
+                    href="/img/projects/web_v2 _full_v2_optimized.jpeg"
                     target="_blank"
                   >
                     <Icon>content_copy</Icon> View Project
