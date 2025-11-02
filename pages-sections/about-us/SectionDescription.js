@@ -22,8 +22,76 @@ export default function SectionDescription() {
           className={classNames(classes.mrAuto, classes.mlAuto)}
         >
           <h5 className={classes.description}>
-          Our mission is to provide educational opportunities and resources that foster a deep understanding of sustainable practices and the development of digital skills for the future. We inspire and equip young people with the knowledge, skills, and values necessary to create a more just and environmentally responsible world. <br/><br/>
-          We envision a future where young people are empowered with the digital skills and knowledge necessary to actively engage in the transition to a low-carbon, circular, and resource-efficient economy. Our vision is a world where the next generation of leaders drive positive change within their communities and beyond, shaping a more just, environmentally responsible, and interconnected society.
+            Proiectul a fost finanțat prin programul Efectiv Civic, derulat de
+            Fundația pentru Dezvoltarea Societății Civile (FDSC) în parteneriat
+            cu Romanian-American Foundation (RAF) și cu sprijinul Centrului
+            pentru Jurnalism Independent (CJI). <br />
+            <br />
+            Proiectul a abordat problema alfabetizării media în rândul
+            tinerilor, cu o focalizare clară pe combaterea dezinformării și a
+            discursului instigator la ură – fenomene care afectează profund
+            coeziunea socială și calitatea dialogului public în societatea
+            contemporană. Scopul principal a fost creșterea gradului de
+            alfabetizare media și dezvoltarea competențelor soft esențiale
+            pentru consumul și producția responsabilă de informație digitală, în
+            rândul a peste 300 de tineri din România, cu vârste între 15 și 29
+            de ani. <br />
+            <br />
+            Proiectul a răspuns unei nevoi stringente: combaterea efectelor
+            dezinformării, bulelor informaționale și a discursului instigator la
+            ură, contribuind la formarea unor cetățeni mai informați, empatici
+            și responsabili. <br />
+            <br />
+            <strong>Ce am realizat prin proiect:</strong>
+            <ul>
+              <li>
+                A fost dezvoltat un cadru de competențe soft adaptat nevoilor
+                tinerilor din România, inspirat din bune practici
+                internaționale, care include: gândire critică, responsabilitate,
+                performanță, respect social, curiozitate, inspirație și
+                bunăstare emoțională. Acest cadru a fundamentat întregul proces
+                educațional.{" "}
+              </li>
+              <li>
+                A fost elaborat un material educațional digital, structurat pe
+                grupe de vârstă și teme relevante, care tratează subiecte precum
+                dezinformarea, algoritmii, identitatea digitală și discursul
+                instigator la ură. Acest material este disponibil gratuit pe
+                site-ul Asociației IDEI și poate fi folosit ca resursă deschisă
+                în alte inițiative educaționale.
+              </li>
+              <li>
+                Peste 300 de tineri din județul Botoșani au participat la
+                ateliere interactive organizate în școli și licee, unde au
+                învățat cum să recunoască manipularea online, să navigheze cu
+                discernământ în social media și să creeze conținut digital
+                responsabil.
+              </li>
+            </ul>
+            <strong>Resurse:</strong>
+            <ul>
+              <li>
+                <a
+                  href="/img/Material-Educational-Digital.docx"
+                  target="_blank"
+                >
+                  Material Educațional Digital (DocX)
+                </a>
+              </li>
+              <li>
+                <a href="/img/brosura.pdf" target="_blank">
+                  Brosura Ateliere (PDF)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/img/projects/web_v2 _full_v2_optimized.jpeg"
+                  target="_blank"
+                >
+                  Infografic (JPG)
+                </a>
+              </li>
+            </ul>
           </h5>
         </GridItem>
       </GridContainer>

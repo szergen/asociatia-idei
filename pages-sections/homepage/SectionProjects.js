@@ -95,12 +95,7 @@ export default function SectionProjects({ ...rest }) {
                       Dezvoltarea Competențelor Critice
                     </h4>
                   </a>
-                  <Button
-                    round
-                    color="idei"
-                    href="/img/projects/web_v2 _full_v2_optimized.jpeg"
-                    target="_blank"
-                  >
+                  <Button round color="idei" href="/proiect-busola-media">
                     <Icon>content_copy</Icon> View Project
                   </Button>
                 </CardBody>
