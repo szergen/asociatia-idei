@@ -72,15 +72,15 @@ export default function SectionDescription() {
             <ul>
               <li>
                 <a
-                  href="/img/Material-Educational-Digital.docx"
+                  href="/img/Scroll Control - Busola media pentru Tineri.pptx"
                   target="_blank"
                 >
-                  Material Educațional Digital (DocX)
+                  Prezentare Scroll Control (PPTX)
                 </a>
               </li>
               <li>
                 <a href="/img/brosura.pdf" target="_blank">
-                  Brosura Ateliere (PDF)
+                  Caietul de lucru Scroll Control (PDF)
                 </a>
               </li>
               <li>
