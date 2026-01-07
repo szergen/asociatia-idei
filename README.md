@@ -41,7 +41,7 @@ asociatia-idei/
 ### 🌐 Website (`apps/website`)
 
 - **Tech Stack**: Next.js 14, Builder.io, Tailwind CSS, Stripe
-- **Features**: CMS-driven content, e-commerce shop, responsive design
+- **Features**: CMS-driven content, e-commerce shop using Stripe as payment provider, responsive design
 - **URL**: www.asociatia-idei.eu
 
 ### 🎓 E-learning Platform (`apps/elearning`)
