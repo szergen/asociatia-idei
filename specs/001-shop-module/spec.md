@@ -101,20 +101,26 @@ As a business owner, I want the system to automatically acknowledge successful p
 
 - **FR-001**: System MUST display a catalog of products at the `/shop` route, fetched from the CMS.
 - **FR-002**: System MUST provide a dedicated product detail page for each item with image gallery, description, and price.
+  - _Clarification_: Product structure is **Simple Products Only** for MVP. Variants (size/color) are out of scope.
 - **FR-003**: System MUST allow users to select item quantity before adding to cart.
 - **FR-004**: System MUST maintain cart state (items, quantities) locally in the user's browser.
+  - _Clarification_: Use **LocalStorage** to persist cart data across sessions (tab closes).
 - **FR-005**: System MUST provide a global cart indicator (icon) in the header that opens a cart summary (drawer/modal).
 - **FR-006**: System MUST allow users to update quantities and remove items within the cart view.
 - **FR-007**: System MUST calculate and display the total price of items in the cart.
 - **FR-008**: System MUST integrate with Stripe Hosted Checkout for payment processing.
+  - _Clarification_: Session creation MUST happen via a **Server-Side API Route** to protect Stripe Secret Keys.
 - **FR-009**: System MUST validate cart items against current prices before initiating checkout session.
+  - _Clarification_: Use **Hybrid Approach**. CMS data is used for display speed, but checkout creation MUST use authoritative Stripe Price IDs. The backend SHOULD verify that the `priceId` maps to an active product before creating the session.
 - **FR-010**: System MUST handle redirection callbacks from Stripe (success and cancel URLs).
 - **FR-011**: System MUST provide a webhook endpoint to receive and verify payment confirmation events from Stripe.
 - **FR-012**: System MUST use Builder.io as the source of truth for product content (title, description, images).
 
 ### Key Entities _(include if feature involves data)_
 
-- **Product**: Represents a sellable item. Attributes: Title, Description, Image(s), Price, Stripe Price ID.
+- **Product**: Represents a sellable item.
+  - Attributes: `title` (Text), `description` (Rich Text), `images` (List<Image>), `stripePriceId` (Text, ID of price in Stripe), `displayPrice` (Number, synced manually/periodically from Stripe for display).
+  - Constraint: One-to-one mapping with a Stripe Price (no variants).
 - **Cart**: Collection of selected items. Attributes: List of CartItems, Total Price.
 - **CartItem**: Specific selection. Attributes: Product Reference, Quantity.
 - **Checkout Session**: Represents the payment interaction. Attributes: Session ID, Status, Line Items.
@@ -140,3 +146,23 @@ As a business owner, I want the system to automatically acknowledge successful p
 - **CMS**: Builder.io is used for product content management.
 - **Order Database**: No local database for orders in this MVP; Stripe Dashboard is the source of truth for orders.
 - **Authentication**: User authentication is not required for guest checkout.
+- **Security**: Stripe Secret Key must never be exposed to the client; all checkout session creation must occur server-side.
+
+## Clarifications
+
+### Session 2026-01-11
+
+- Q: How should price consistency be handled between CMS (Builder.io) and Payment Provider (Stripe)?
+
+  - A: **Hybrid (CMS + Validation)**: Store price in Builder.io for fast display (SSG), but validate against Stripe backend-side (using Stripe Price IDs) before creating the checkout session.
+
+- Q: Should the MVP support product variants (e.g., Size, Color) or only simple products?
+
+  - A: **Simple Products Only**: Each CMS entry maps to exactly one Stripe Price ID to reduce complexity for MVP.
+
+- Q: Where should the Stripe Checkout Session be created?
+
+  - A: **Server-Side (API Route)**: All session creation must happen in a Next.js API route to keep the Stripe Secret Key secure.
+
+- Q: How should cart state be persisted on the client?
+  - A: **LocalStorage**: Persist cart JSON in browser LocalStorage. Simple, survives tab close, widely supported.
