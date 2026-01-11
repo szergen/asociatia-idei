@@ -29,10 +29,10 @@ _Goal: Implement core shared utilities and state management required for all sto
 
 _Goal: Users can browse and view products._
 
-- [x] T012 [US1] Create shop main page at `apps/website/src/app/shop/page.tsx`
-- [x] T013 [US1] Implement Builder.io fetching logic in `apps/website/src/app/shop/page.tsx` for product list
-- [x] T014 [US1] Create product detail page at `apps/website/src/app/shop/[slug]/page.tsx`
-- [x] T015 [US1] Implement Builder.io fetching logic for single product in `apps/website/src/app/shop/[slug]/page.tsx`
+- [x] T012 [US1] Create shop main page at `apps/website/src/pages/shop/index.tsx`
+- [x] T013 [US1] Implement Builder.io fetching logic in `apps/website/src/pages/shop/index.tsx` for product list
+- [x] T014 [US1] Create product detail page at `apps/website/src/pages/shop/[slug].tsx`
+- [x] T015 [US1] Implement Builder.io fetching logic for single product in `apps/website/src/pages/shop/[slug].tsx`
 - [x] T016 [US1] [P] Style `ProductCard` grid layout in shop main page
 - [x] T017 [US1] [P] Implement product gallery and info layout in product detail page
 
@@ -52,18 +52,18 @@ _Goal: Users can manage cart contents._
 
 _Goal: Users can securely checkout via Stripe._
 
-- [x] T025 [US3] Create API route `apps/website/src/app/api/checkout/route.ts`
+- [x] T025 [US3] Create API route `apps/website/src/pages/api/checkout.ts`
 - [x] T026 [US3] Implement Stripe Session creation logic in API route (validating items against Stripe)
 - [x] T027 [US3] Implement `handleCheckout` function in `CartDrawer` calling `/api/checkout`
 - [x] T028 [US3] Handle redirection to Stripe URL from frontend
-- [x] T029 [US3] Create success page `apps/website/src/app/shop/success/page.tsx`
+- [x] T029 [US3] Create success page `apps/website/src/pages/shop/success.tsx`
 - [x] T030 [US3] Implement "Clear Cart" logic on success page mount
 
 ## Phase 6: User Story 4 - Order Confirmation (Priority: P2)
 
 _Goal: System acknowledges orders via Webhooks._
 
-- [x] T031 [US4] Create API route `apps/website/src/app/api/webhooks/stripe/route.ts`
+- [x] T031 [US4] Create API route `apps/website/src/pages/api/webhooks/stripe.ts`
 - [x] T032 [US4] Implement Stripe signature verification in webhook route
 - [x] T033 [US4] Handle `checkout.session.completed` event and log order details
 - [x] T034 [US4] Configure local webhook forwarding (instructions in README/Quickstart)

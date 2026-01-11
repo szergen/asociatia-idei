@@ -7,16 +7,16 @@
 
 ## Summary
 
-Implement a lightweight e-commerce module using Next.js (App Router), Builder.io, and Stripe Hosted Checkout. The system will feature product listings (SSG from Builder.io), a client-side cart (Context + LocalStorage), and a secure checkout flow.
+Implement a lightweight e-commerce module using Next.js (Pages Router), Builder.io, and Stripe Hosted Checkout. The system will feature product listings (SSG from Builder.io), a client-side cart (Context + LocalStorage), and a secure checkout flow.
 Technical approach: Hybrid validation strategy where frontend displays cached CMS data for performance, but backend API routes validate prices against authoritative Stripe IDs during session creation.
 
 ## Technical Context
 
-**Language/Version**: TypeScript 5.x, Node.js 18+ (Next.js 14 environment)
+**Language/Version**: TypeScript 5.x, Node.js 18+ (Next.js 14 environment, Pages Router)
 **Primary Dependencies**:
 
 - Frontend: `react`, `@builder.io/react`, `stripe-js` (optional, for redirect)
-- Backend: `stripe` (Node.js SDK), `next` (API Routes)
+- Backend: `stripe` (Node.js SDK), `next` (API Routes), `micro` (for raw body parsing)
 - UI: `tailwindcss`, `lucide-react` (icons)
   **Storage**:
 - Client: `localStorage` (Cart state)
@@ -30,6 +30,7 @@ Technical approach: Hybrid validation strategy where frontend displays cached CM
 - Security: Stripe Secret Key MUST remain server-side.
 - Data: Simple products only (no variants).
 - Persistence: Cart survives tab close.
+- **Routing**: Must use Next.js Pages Router (`src/pages`) to match existing project structure.
 
 ## Constitution Check
 
@@ -60,16 +61,15 @@ specs/001-shop-module/
 ```text
 apps/website/
 ├── src/
-│   ├── app/
+│   ├── pages/
 │   │   ├── shop/               # Shop Pages
-│   │   │   ├── page.tsx        # Product Listing
-│   │   │   └── [slug]/page.tsx # Product Detail
+│   │   │   ├── index.tsx       # Product Listing
+│   │   │   ├── [slug].tsx      # Product Detail
+│   │   │   └── success.tsx     # Success Page
 │   │   └── api/
-│   │       ├── checkout/       # Checkout Session Endpoint
-│   │       │   └── route.ts
-│   │       └── webhooks/       # Stripe Webhook Handler
-│   │           └── stripe/
-│   │               └── route.ts
+│   │       ├── checkout.ts     # Checkout Session Endpoint
+│   │       └── webhooks/
+│   │           └── stripe.ts   # Stripe Webhook Handler
 │   ├── components/
 │   │   └── shop/               # Shop-specific components (CartDrawer, ProductCard)
 │   ├── context/
@@ -81,7 +81,7 @@ packages/shared-ui/
 │   └── components/             # Reusable UI (Buttons, Modals)
 ```
 
-**Structure Decision**: Adheres to Next.js App Router conventions within the existing Monorepo structure.
+**Structure Decision**: Using **Pages Router** (`src/pages`) to match existing project conventions, avoiding hybrid routing complexity.
 
 ## Complexity Tracking
 
