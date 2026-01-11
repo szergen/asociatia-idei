@@ -28,8 +28,8 @@ tutor local launch
 
 After launch completes:
 
-- **LMS (Students)**: http://local.overhang.io:8000
-- **CMS (Studio)**: http://studio.local.overhang.io:8001
+- **LMS (Students)**: http://local.overhang.io:8000 or http://local.overhang.io/
+- **CMS (Studio)**: http://studio.local.overhang.io:8001 or http://studio.local.overhang.io
 - **Admin**: Email and password created during setup
 
 ## Step 3: Create Additional Users
