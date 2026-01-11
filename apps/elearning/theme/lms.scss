@@ -1,0 +1,12 @@
+/**
+ * Main SCSS file for Asociatia IDEI LMS Theme
+ * This imports the custom styles for the Learning Management System
+ */
+
+@import "variables";
+@import "components/header";
+@import "components/footer";
+@import "components/buttons";
+@import "components/forms";
+@import "layouts/course";
+@import "layouts/dashboard";

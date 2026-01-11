@@ -1,0 +1,21 @@
+{
+  "name": "@asociatia-idei/shared-utils",
+  "version": "1.0.0",
+  "description": "Shared utilities for Asociatia IDEI applications",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@asociatia-idei/shared-types": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "@asociatia-idei/elearning",
+  "version": "1.0.0",
+  "private": true,
+  "description": "OpenEDX customizations and theme for Asociatia IDEI e-learning platform",
+  "scripts": {
+    "build": "npm run build:theme",
+    "build:theme": "cd theme && npm install && npm run build",
+    "build:plugin": "cd plugins/idei-theme && pip install -e .",
+    "watch": "cd theme && npm run watch",
+    "clean": "cd theme && npm run clean",
+    "tutor:init": "tutor local quickstart",
+    "tutor:start": "tutor local start -d",
+    "tutor:stop": "tutor local stop",
+    "tutor:restart": "tutor local restart",
+    "tutor:logs": "tutor local logs -f",
+    "tutor:exec-lms": "tutor local exec lms bash",
+    "tutor:exec-cms": "tutor local exec cms bash",
+    "plugin:enable": "tutor plugins enable idei-theme",
+    "plugin:disable": "tutor plugins disable idei-theme",
+    "dev:setup": "npm run build:theme && npm run plugin:enable && npm run tutor:init",
+    "dev": "npm run tutor:start && npm run watch",
+    "docker:build": "docker-compose -f docker/docker-compose.yml build",
+    "docker:up": "docker-compose -f docker/docker-compose.yml up -d",
+    "docker:down": "docker-compose -f docker/docker-compose.yml down"
+  },
+  "dependencies": {
+    "@asociatia-idei/shared-ui": "*",
+    "@asociatia-idei/shared-utils": "*",
+    "@asociatia-idei/shared-types": "*"
+  },
+  "devDependencies": {
+    "sass": "^1.69.0"
+  }
+}

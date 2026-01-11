@@ -1,0 +1,31 @@
+// Header Component Custom Styles
+// These styles complement the Tailwind classes
+// Add your custom styles here as needed
+
+.header {
+  position: relative;
+
+  // Example: Add custom box-shadow or backdrop blur
+  // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  // Example: Custom navigation link animations
+  // .header__navLink {
+  //   position: relative;
+  //   transition: all 0.3s ease;
+  //
+  //   &::after {
+  //     content: '';
+  //     position: absolute;
+  //     bottom: -4px;
+  //     left: 0;
+  //     width: 0;
+  //     height: 2px;
+  //     background: currentColor;
+  //     transition: width 0.3s ease;
+  //   }
+  //
+  //   &:hover::after {
+  //     width: 100%;
+  //   }
+  // }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "idei-openedx-theme",
+  "version": "1.0.0",
+  "description": "OpenEDX theme for Asociatia IDEI",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:sass",
+    "build:sass": "sass lms.scss:lms/static/css/lms.css --style compressed && sass cms.scss:cms/static/css/cms.css --style compressed",
+    "watch": "sass --watch lms.scss:lms/static/css/lms.css & sass --watch cms.scss:cms/static/css/cms.css",
+    "clean": "rm -rf lms/static/css cms/static/css"
+  },
+  "keywords": [
+    "openedx",
+    "theme",
+    "education"
+  ],
+  "author": "Asociatia IDEI",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.0"
+  }
+}

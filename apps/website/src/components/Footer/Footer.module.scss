@@ -1,0 +1,36 @@
+// Footer Component Custom Styles
+// These styles complement the Tailwind classes
+// Add your custom styles here as needed
+
+.footer {
+  position: relative;
+
+  // Example: Custom social link hover animations
+  // .footer__socialLinks a {
+  //   transition: transform 0.3s ease, color 0.3s ease;
+  //
+  //   &:hover {
+  //     transform: translateY(-2px);
+  //   }
+  // }
+
+  // Example: Custom link underline effect
+  // .footer__quickLinks a {
+  //   position: relative;
+  //
+  //   &::after {
+  //     content: '';
+  //     position: absolute;
+  //     bottom: -2px;
+  //     left: 0;
+  //     width: 0;
+  //     height: 1px;
+  //     background: currentColor;
+  //     transition: width 0.3s ease;
+  //   }
+  //
+  //   &:hover::after {
+  //     width: 100%;
+  //   }
+  // }
+}

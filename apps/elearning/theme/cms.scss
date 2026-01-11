@@ -1,0 +1,31 @@
+/**
+ * Main SCSS file for Asociatia IDEI CMS Theme
+ * This imports the custom styles for the Content Management System (Studio)
+ */
+
+@import "variables";
+@import "components/header";
+@import "components/footer";
+@import "components/buttons";
+@import "components/forms";
+
+// CMS-specific styles
+.studio-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: $spacing-lg;
+}
+
+.course-outline {
+  background-color: $background-light;
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+}
+
+.unit-editor {
+  background-color: $background;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  padding: $spacing-xl;
+  margin-bottom: $spacing-lg;
+}

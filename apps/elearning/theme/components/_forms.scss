@@ -1,0 +1,41 @@
+/**
+ * Form Styles
+ */
+
+.form-idei {
+  &__group {
+    margin-bottom: $spacing-lg;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: $spacing-sm;
+    font-weight: $font-weight-medium;
+    color: $text-color;
+  }
+
+  &__input {
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    font-size: $font-size-base;
+    transition: $transition-base;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+    }
+  }
+
+  &__textarea {
+    @extend .form-idei__input;
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  &__select {
+    @extend .form-idei__input;
+  }
+}

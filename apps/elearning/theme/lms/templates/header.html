@@ -1,0 +1,99 @@
+## mako <%page expression_filter="h"/> <%namespace name='static'
+file='static_content.html'/>
+
+<header class="idei-header">
+  <div class="idei-header__container">
+    <div class="idei-header__flex">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <a href="${marketing_link('ROOT')}" class="idei-header__logo">
+          Asociația IDEI
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="idei-header__nav">
+        <a href="/" class="idei-header__nav-link">Acasă</a>
+        <a href="/despre-noi" class="idei-header__nav-link">Despre Noi</a>
+        <a href="/proiecte" class="idei-header__nav-link">Proiecte</a>
+        <a href="/evenimente" class="idei-header__nav-link">Evenimente</a>
+        <a
+          href="${reverse('dashboard')}"
+          class="idei-header__nav-link idei-header__nav-link--active"
+          >Cursuri</a
+        >
+        <a href="/contact" class="idei-header__nav-link">Contact</a>
+      </nav>
+
+      <!-- User Menu or CTA -->
+      % if user.is_authenticated:
+      <div class="hidden md:flex">
+        <div class="user-menu">
+          <a href="${reverse('dashboard')}" class="idei-header__nav-link">
+            ${user.username}
+          </a>
+          <a href="${reverse('logout')}" class="idei-header__nav-link">
+            Logout
+          </a>
+        </div>
+      </div>
+      % else:
+      <div class="hidden md:flex">
+        <a href="${reverse('signin_user')}" class="idei-header__cta-button">
+          Autentificare
+        </a>
+      </div>
+      % endif
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button class="idei-header__mobile-toggle" id="mobile-menu-toggle">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="idei-header__mobile-menu" id="mobile-menu">
+      <a href="/" class="idei-header__nav-link">Acasă</a>
+      <a href="/despre-noi" class="idei-header__nav-link">Despre Noi</a>
+      <a href="/proiecte" class="idei-header__nav-link">Proiecte</a>
+      <a href="/evenimente" class="idei-header__nav-link">Evenimente</a>
+      <a href="${reverse('dashboard')}" class="idei-header__nav-link"
+        >Cursuri</a
+      >
+      <a href="/contact" class="idei-header__nav-link">Contact</a>
+      % if user.is_authenticated:
+      <a href="${reverse('dashboard')}" class="idei-header__nav-link"
+        >${user.username}</a
+      >
+      <a href="${reverse('logout')}" class="idei-header__nav-link">Logout</a>
+      % else:
+      <a href="${reverse('signin_user')}" class="idei-header__nav-link"
+        >Autentificare</a
+      >
+      % endif
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("mobile-menu-toggle");
+    const menu = document.getElementById("mobile-menu");
+
+    if (toggle && menu) {
+      toggle.addEventListener("click", function () {
+        menu.classList.toggle("idei-header__mobile-menu--open");
+      });
+    }
+  });
+</script>

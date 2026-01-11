@@ -1,0 +1,80 @@
+# Tutor Configuration for Asociatia IDEI OpenEDX Platform
+# This file contains the main configuration for running OpenEDX with Tutor
+
+# Platform Information
+PLATFORM_NAME: "Asociatia IDEI Learning"
+PLATFORM_DESCRIPTION: "Platformă de e-learning pentru educație de calitate"
+CONTACT_EMAIL: "contact@asociatia-idei.eu"
+
+# Domain Configuration (update for production)
+LMS_HOST: "learning.local.overhang.io" # Change to learning.asociatia-idei.eu in production
+CMS_HOST: "studio.local.overhang.io" # Change to cms.learning.asociatia-idei.eu in production
+PREVIEW_LMS_HOST: "preview.local.overhang.io"
+
+# SSL/HTTPS Configuration
+ENABLE_HTTPS: false # Set to true in production
+ENABLE_WEB_PROXY: true
+
+# Language Settings
+LANGUAGE_CODE: "ro"
+TIME_ZONE: "Europe/Bucharest"
+
+# Custom Theme
+OPENEDX_EXTRA_PIP_REQUIREMENTS:
+  - "git+https://github.com/overhangio/tutor-indigo.git"
+
+# Tutor Version
+TUTOR_VERSION: "15.3.0"
+
+# OpenEDX Release
+OPENEDX_COMMON_VERSION: "open-release/palm.master"
+
+# Features to Enable
+FEATURES:
+  ENABLE_DISCUSSION_SERVICE: true
+  ENABLE_MOBILE_REST_API: true
+  ENABLE_OAUTH2_PROVIDER: true
+  ENABLE_COMBINED_LOGIN_REGISTRATION: true
+  ENABLE_GRADE_DOWNLOADS: true
+  ENABLE_STUDENT_NOTES: true
+  ENABLE_INSTRUCTOR_ANALYTICS: true
+  CERTIFICATES_HTML_VIEW: true
+  CUSTOM_CERTIFICATE_TEMPLATES_ENABLED: true
+  ENABLE_COURSEWARE_SEARCH: true
+  ENABLE_DASHBOARD_SEARCH: true
+  ENABLE_COURSE_DISCOVERY: true
+
+# Email Configuration
+EMAIL_BACKEND: "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST: "smtp.gmail.com"
+EMAIL_PORT: 587
+EMAIL_USE_TLS: true
+DEFAULT_FROM_EMAIL: "noreply@asociatia-idei.eu"
+DEFAULT_FEEDBACK_EMAIL: "feedback@asociatia-idei.eu"
+TECH_SUPPORT_EMAIL: "support@asociatia-idei.eu"
+
+# Storage Configuration
+ENABLE_S3: false # Set to true if using AWS S3
+AWS_ACCESS_KEY_ID: ""
+AWS_SECRET_ACCESS_KEY: ""
+AWS_STORAGE_BUCKET_NAME: ""
+
+# Social Authentication (optional)
+ENABLE_OAUTH2_PROVIDER: true
+
+# Additional Settings
+SESSION_COOKIE_DOMAIN: ""
+CSRF_COOKIE_DOMAIN: ""
+
+# Docker Configuration
+DOCKER_IMAGE_OPENEDX: "overhangio/openedx:15.3.0"
+DOCKER_IMAGE_MYSQL: "mysql:8.0"
+DOCKER_IMAGE_MONGODB: "mongo:4.4"
+DOCKER_IMAGE_ELASTICSEARCH: "elasticsearch:7.17.0"
+DOCKER_IMAGE_REDIS: "redis:6.2"
+
+# Resource Limits
+MYSQL_ROOT_PASSWORD: "SET_A_SECURE_PASSWORD"
+MONGODB_ROOT_PASSWORD: "SET_A_SECURE_PASSWORD"
+OPENEDX_MYSQL_PASSWORD: "SET_A_SECURE_PASSWORD"
+OPENEDX_SECRET_KEY: "SET_A_SECURE_SECRET_KEY"

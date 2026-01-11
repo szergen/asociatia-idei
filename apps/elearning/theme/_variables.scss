@@ -1,0 +1,50 @@
+/**
+ * Theme Variables for Asociatia IDEI
+ * These variables match the design from the main website
+ */
+
+// Colors - matching website theme
+$primary-color: #2563eb; // blue-600
+$primary-hover: #1d4ed8; // blue-700
+$secondary-color: #64748b; // gray-500
+$text-color: #374151; // gray-700
+$text-light: #6b7280; // gray-500
+$background: #ffffff;
+$background-light: #f9fafb; // gray-50
+$background-dark: #111827; // gray-900
+$border-color: #e5e7eb; // gray-200
+$shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+
+// Typography
+$font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, sans-serif;
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-sm: 14px;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// Border radius
+$border-radius-sm: 0.25rem;
+$border-radius: 0.5rem;
+$border-radius-lg: 0.75rem;
+
+// Transitions
+$transition-base: all 0.3s ease;
+$transition-fast: all 0.15s ease;
