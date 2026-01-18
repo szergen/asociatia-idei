@@ -1,10 +1,10 @@
 import React from "react";
-import { builder } from "@builder.io/sdk";
+import { builder } from "../../builder/builder.config";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { useRouter } from "next/router";
 import { ProductActions } from "../../components/shop/ProductActions";
 
-builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
+// Builder initialized in builder.config.ts
 
 interface Product {
   data: {

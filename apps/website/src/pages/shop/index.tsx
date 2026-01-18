@@ -1,10 +1,9 @@
 import React from "react";
-import { builder } from "@builder.io/sdk";
+import { builder } from "../../builder/builder.config";
 import { GetStaticProps } from "next";
 import { ProductCard } from "../../components/shop/ProductCard";
 
-// Builder.io Public Key
-builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
+// Builder initialized in builder.config.ts
 
 interface Product {
   data: {
