@@ -10,7 +10,7 @@ interface Product {
     title: string;
     description: string;
     price: number;
-    image: string;
+    imageList: { image: string; alt?: string }[];
     stripePriceId: string;
     slug: string;
   };
@@ -44,17 +44,27 @@ export default function ShopPage({ products }: ShopPageProps) {
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {products.map((item) => (
-            <ProductCard
-              key={item.data.slug}
-              title={item.data.title}
-              description={item.data.description}
-              price={item.data.price}
-              image={item.data.image}
-              stripePriceId={item.data.stripePriceId}
-              slug={item.data.slug}
-            />
-          ))}
+          {products.map((item) => {
+            const firstItem = item.data.imageList?.[0];
+            // Check for 'image' or 'imageItem' or any file property
+            const imageSrc =
+              firstItem?.image ||
+              (firstItem as any)?.imageItem ||
+              (firstItem as any)?.file ||
+              "";
+
+            return (
+              <ProductCard
+                key={item.data.slug}
+                title={item.data.title}
+                description={item.data.description}
+                price={item.data.price}
+                image={imageSrc}
+                stripePriceId={item.data.stripePriceId}
+                slug={item.data.slug}
+              />
+            );
+          })}
         </div>
       )}
     </div>

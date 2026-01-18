@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "../../context/CartContext";
 
@@ -34,13 +35,22 @@ export const ProductCard = ({
   };
 
   return (
-    <div className="group relative bg-white border rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-      <div className="aspect-square bg-gray-100 overflow-hidden">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-        />
+    <Link
+      href={`/shop/${slug}`}
+      className="group relative bg-white border rounded-lg overflow-hidden hover:shadow-lg transition-shadow block"
+    >
+      <div className="aspect-square bg-gray-100 overflow-hidden relative">
+        {image ? (
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        ) : (
+          <div className="flex items-center justify-center w-full h-full text-gray-400 bg-gray-200">
+            No Image
+          </div>
+        )}
       </div>
       <div className="p-4 flex flex-col gap-2">
         <h3 className="font-semibold text-lg truncate">{title}</h3>
@@ -60,6 +70,6 @@ export const ProductCard = ({
           </button>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };

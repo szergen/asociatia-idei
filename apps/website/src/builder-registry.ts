@@ -6,15 +6,23 @@ Builder.register("model", {
     { name: "title", type: "text", required: true },
     { name: "description", type: "richText", required: true },
     {
-      name: "image",
-      type: "file",
-      required: true,
-      allowedFileTypes: ["jpeg", "png", "webp"],
-    },
-    {
-      name: "gallery",
+      name: "imageList",
       type: "list",
-      subFields: [{ name: "image", type: "file" }],
+      required: true,
+      subFields: [
+        {
+          name: "image",
+          type: "file",
+          required: true,
+          allowedFileTypes: ["jpeg", "png", "webp"],
+          friendlyName: "Image item",
+        },
+        {
+          name: "alt",
+          type: "text",
+          friendlyName: "Image item alt",
+        },
+      ],
     },
     { name: "price", type: "number", required: true },
     {

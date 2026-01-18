@@ -11,8 +11,7 @@ interface Product {
     title: string;
     description: string;
     price: number;
-    image: string;
-    gallery?: { image: string }[];
+    imageList: { image: string; alt?: string }[];
     stripePriceId: string;
     slug: string;
   };
@@ -66,8 +65,16 @@ export default function ProductPage({ product }: ProductPageProps) {
     return <div>Product not found</div>;
   }
 
-  const { title, description, price, image, gallery, stripePriceId, slug } =
+  const { title, description, price, imageList, stripePriceId, slug } =
     product.data;
+
+  // Use first image as main image, check for various property names
+  const firstItem = imageList?.[0];
+  const mainImage =
+    firstItem?.image ||
+    (firstItem as any)?.imageItem ||
+    (firstItem as any)?.file ||
+    "";
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -76,25 +83,32 @@ export default function ProductPage({ product }: ProductPageProps) {
         <div className="space-y-4">
           <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
             <img
-              src={image}
+              src={mainImage}
               alt={title}
               className="w-full h-full object-cover"
             />
           </div>
-          {gallery && gallery.length > 0 && (
+          {imageList && imageList.length > 0 && (
             <div className="grid grid-cols-4 gap-4">
-              {gallery.map((img: any, idx: number) => (
-                <div
-                  key={idx}
-                  className="aspect-square bg-gray-50 rounded-md overflow-hidden cursor-pointer border hover:border-black"
-                >
-                  <img
-                    src={img.image}
-                    alt={`${title} view ${idx + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
+              {imageList.map((imgItem, idx: number) => {
+                const imgUrl =
+                  imgItem.image ||
+                  (imgItem as any).imageItem ||
+                  (imgItem as any).file ||
+                  "";
+                return (
+                  <div
+                    key={idx}
+                    className="aspect-square bg-gray-50 rounded-md overflow-hidden cursor-pointer border hover:border-black"
+                  >
+                    <img
+                      src={imgUrl}
+                      alt={imgItem.alt || `${title} view ${idx + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
@@ -115,7 +129,7 @@ export default function ProductPage({ product }: ProductPageProps) {
                 stripePriceId: stripePriceId,
                 title: title,
                 price: price,
-                image: image,
+                image: mainImage,
               }}
             />
           </div>
