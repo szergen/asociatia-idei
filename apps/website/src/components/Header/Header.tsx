@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { headerStyles } from "./Header.styles";
 import styles from "./Header.module.scss";
+import { CartIcon } from "../shop/CartIcon";
 
 interface HeaderProps {
   className?: string;
@@ -40,6 +41,10 @@ const Header: React.FC<HeaderProps> = ({ className = "" }) => {
               Contact
             </Link>
           </nav>
+
+          <div className="mr-4">
+            <CartIcon />
+          </div>
 
           {/* CTA Button */}
           <div className="hidden md:flex">

@@ -1,6 +1,5 @@
 import React from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
-import Layout from "../components/Layout";
 import {
   BuilderPage,
   generateBuilderStaticProps,
@@ -14,18 +13,9 @@ interface DynamicPageProps {
 
 // Dynamic page component for full Builder.io pages
 const DynamicPage: React.FC<DynamicPageProps> = ({ page, model }) => {
-  // Check if this page should use a layout
-  const useLayout = page?.data?.useLayout !== false;
+  // Layout logic is handled in _app.tsx based on page.data.useLayout
 
-  if (useLayout) {
-    return (
-      <Layout>
-        <BuilderPage page={page} model={model} />
-      </Layout>
-    );
-  }
-
-  // Full page without layout (Builder.io controls everything)
+  // Full page (Builder.io controls content)
   return <BuilderPage page={page} model={model} />;
 };
 

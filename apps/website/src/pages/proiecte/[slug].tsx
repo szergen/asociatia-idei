@@ -1,6 +1,5 @@
 import React from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
-import Layout from "../../components/Layout";
 import { BuilderPage, builder } from "../../builder";
 
 interface ProjectPageProps {
@@ -10,18 +9,8 @@ interface ProjectPageProps {
 
 // Individual project page component
 const ProjectPage: React.FC<ProjectPageProps> = ({ page, model }) => {
-  // Check if this page should use a layout
-  const useLayout = page?.data?.useLayout !== false;
+  // Layout logic is handled in _app.tsx
 
-  if (useLayout) {
-    return (
-      <Layout>
-        <BuilderPage page={page} model={model} />
-      </Layout>
-    );
-  }
-
-  // Full page without layout (Builder.io controls everything)
   return <BuilderPage page={page} model={model} />;
 };
 
