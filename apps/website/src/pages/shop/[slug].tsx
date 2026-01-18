@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { builder } from "../../builder/builder.config";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { useRouter } from "next/router";
@@ -57,6 +57,16 @@ export const getStaticProps: GetStaticProps<ProductPageProps> = async ({
 export default function ProductPage({ product }: ProductPageProps) {
   const router = useRouter();
 
+  // Use first image as main image, check for various property names
+  const firstItem = product?.data?.imageList?.[0];
+  const initialImage =
+    firstItem?.image ||
+    (firstItem as any)?.imageItem ||
+    (firstItem as any)?.file ||
+    "";
+
+  const [activeImage, setActiveImage] = useState(initialImage);
+
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
@@ -68,13 +78,10 @@ export default function ProductPage({ product }: ProductPageProps) {
   const { title, description, price, imageList, stripePriceId, slug } =
     product.data;
 
-  // Use first image as main image, check for various property names
-  const firstItem = imageList?.[0];
-  const mainImage =
-    firstItem?.image ||
-    (firstItem as any)?.imageItem ||
-    (firstItem as any)?.file ||
-    "";
+  // Update activeImage if initialImage changes (e.g. navigation between products)
+  React.useEffect(() => {
+    setActiveImage(initialImage);
+  }, [initialImage]);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -83,7 +90,7 @@ export default function ProductPage({ product }: ProductPageProps) {
         <div className="space-y-4">
           <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
             <img
-              src={mainImage}
+              src={activeImage}
               alt={title}
               className="w-full h-full object-cover"
             />
@@ -99,7 +106,12 @@ export default function ProductPage({ product }: ProductPageProps) {
                 return (
                   <div
                     key={idx}
-                    className="aspect-square bg-gray-50 rounded-md overflow-hidden cursor-pointer border hover:border-black"
+                    className={`aspect-square bg-gray-50 rounded-md overflow-hidden cursor-pointer border ${
+                      activeImage === imgUrl
+                        ? "border-black ring-1 ring-black"
+                        : "hover:border-black"
+                    }`}
+                    onClick={() => setActiveImage(imgUrl)}
                   >
                     <img
                       src={imgUrl}
@@ -129,7 +141,7 @@ export default function ProductPage({ product }: ProductPageProps) {
                 stripePriceId: stripePriceId,
                 title: title,
                 price: price,
-                image: mainImage,
+                image: initialImage,
               }}
             />
           </div>

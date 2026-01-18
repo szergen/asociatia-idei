@@ -1,7 +1,6 @@
 import React from "react";
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import Layout from "../../components/Layout";
 import ProjectCard from "../../components/ProjectCard";
 import { BuilderSection, useBuilderList } from "../../builder";
 
@@ -29,7 +28,7 @@ const EventsPage: React.FC<EventsPageProps> = ({
   console.log("DEBUG: Events data:", events);
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>Evenimente - Asociația IDEI</title>
         <meta
@@ -114,7 +113,7 @@ const EventsPage: React.FC<EventsPageProps> = ({
           </a>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 

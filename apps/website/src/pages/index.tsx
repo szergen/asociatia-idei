@@ -1,7 +1,6 @@
 import React from "react";
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import Layout from "../components/Layout";
 import { BuilderSection, BuilderSymbol, getBuilderPageData } from "../builder";
 
 interface HomePageProps {
@@ -18,7 +17,7 @@ const HomePage: React.FC<HomePageProps> = ({
   testimonialsSection,
 }) => {
   return (
-    <Layout>
+    <>
       <Head>
         <title>Asociația IDEI - Acasă</title>
         <meta
@@ -256,7 +255,7 @@ const HomePage: React.FC<HomePageProps> = ({
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 

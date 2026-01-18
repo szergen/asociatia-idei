@@ -1,7 +1,6 @@
 import React from "react";
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import Layout from "../../components/Layout";
 import ProjectCard from "../../components/ProjectCard";
 import { BuilderSection, useBuilderList } from "../../builder";
 
@@ -30,7 +29,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({
   const displayProjects = projects.length > 0 ? projects : initialProjects;
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>Proiecte - Asociația IDEI</title>
         <meta
@@ -115,7 +114,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({
           </a>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 
