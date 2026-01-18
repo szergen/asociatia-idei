@@ -12,6 +12,7 @@ export interface CartItem {
 interface CartContextType {
   cartItems: CartItem[];
   addToCart: (item: CartItem) => void;
+  updateQuantity: (stripePriceId: string, quantity: number) => void;
   removeFromCart: (stripePriceId: string) => void;
   clearCart: () => void;
   isOpen: boolean;
@@ -25,6 +26,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   // Load cart from localStorage on mount
   React.useEffect(() => {
@@ -36,12 +38,15 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         console.error("Failed to parse cart from localStorage:", error);
       }
     }
+    setIsInitialized(true);
   }, []);
 
   // Save cart to localStorage whenever it changes
   React.useEffect(() => {
-    localStorage.setItem("shop_cart_v1", JSON.stringify(cartItems));
-  }, [cartItems]);
+    if (isInitialized) {
+      localStorage.setItem("shop_cart_v1", JSON.stringify(cartItems));
+    }
+  }, [cartItems, isInitialized]);
 
   const addToCart = (item: CartItem) => {
     setCartItems((prevItems) => {
@@ -51,13 +56,28 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
       if (existingItemIndex > -1) {
         const newItems = [...prevItems];
-        newItems[existingItemIndex].quantity += item.quantity;
+        // Ensure quantity doesn't exceed reasonable limits
+        newItems[existingItemIndex].quantity = Math.min(
+          99,
+          newItems[existingItemIndex].quantity + item.quantity
+        );
         return newItems;
       }
 
       return [...prevItems, item];
     });
     setIsOpen(true);
+  };
+
+  const updateQuantity = (stripePriceId: string, quantity: number) => {
+    if (quantity < 1) return;
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.stripePriceId === stripePriceId
+          ? { ...item, quantity: Math.min(99, quantity) }
+          : item
+      )
+    );
   };
 
   const removeFromCart = (stripePriceId: string) => {
@@ -83,6 +103,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       value={{
         cartItems,
         addToCart,
+        updateQuantity,
         removeFromCart,
         clearCart,
         isOpen,

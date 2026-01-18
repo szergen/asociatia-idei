@@ -10,6 +10,7 @@ export const CartDrawer = () => {
     isOpen,
     closeCart,
     removeFromCart,
+    updateQuantity,
     addToCart,
     totalPrice,
   } = useCart();
@@ -45,24 +46,8 @@ export const CartDrawer = () => {
 
   if (!isOpen) return null;
 
-  const handleQuantityChange = (item: any, change: number) => {
-    if (change > 0) {
-      addToCart({ ...item, quantity: 1 });
-    } else if (item.quantity > 1) {
-      // For decreasing, we need a way to decrement. Currently addToCart adds.
-      // We might need a separate updateQuantity function in context or logic here.
-      // For MVP, simplistic addToCart handles addition.
-      // Let's rely on remove for full removal and maybe add updateQuantity to context later if needed strictly.
-      // Or we can just remove and re-add with new quantity? No, that reorders.
-      // Let's assuming context will have updateQuantity or we handle it via addToCart logic adjustment in context if we want robust -/+.
-      // Actually, T007 implementation only had addToCart (increment) and removeFromCart.
-      // We'll stick to what we have or just show remove for now.
-      // Wait, T021 says "Implement quantity adjustment controls".
-      // We should probably add updateQuantity to context or just handle it here if context allows.
-      // Let's add updateQuantity to context in next step or use a workaround?
-      // Context T007 implementation logic for addToCart adds to existing.
-      // We need a way to set specific quantity or decrement.
-    }
+  const handleQuantityChange = (stripePriceId: string, quantity: number) => {
+    updateQuantity(stripePriceId, quantity);
   };
 
   return (
@@ -111,7 +96,12 @@ export const CartDrawer = () => {
                     <div className="flex items-center border rounded-md">
                       <button
                         className="p-1 hover:bg-gray-50"
-                        onClick={() => removeFromCart(item.stripePriceId)} // Temp: Remove for decrement logic placeholder
+                        onClick={() =>
+                          handleQuantityChange(
+                            item.stripePriceId,
+                            item.quantity - 1
+                          )
+                        }
                         disabled={item.quantity <= 1}
                       >
                         <Minus className="w-4 h-4" />
@@ -119,7 +109,12 @@ export const CartDrawer = () => {
                       <span className="px-2 text-sm">{item.quantity}</span>
                       <button
                         className="p-1 hover:bg-gray-50"
-                        onClick={() => addToCart({ ...item, quantity: 1 })}
+                        onClick={() =>
+                          handleQuantityChange(
+                            item.stripePriceId,
+                            item.quantity + 1
+                          )
+                        }
                       >
                         <Plus className="w-4 h-4" />
                       </button>
