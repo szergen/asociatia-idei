@@ -29,7 +29,8 @@ Builder.register("model", {
       name: "stripePriceId",
       type: "text",
       required: true,
-      helperText: "e.g., price_1K...",
+      helperText:
+        "The Stripe Price ID (starts with 'price_'), NOT the Product ID.",
     },
     {
       name: "slug",

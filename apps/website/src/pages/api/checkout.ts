@@ -17,6 +17,15 @@ export default async function handler(
       return res.status(400).json({ error: "Invalid items" });
     }
 
+    // Validation: Check for common configuration errors
+    for (const item of items) {
+      if (item.stripePriceId && item.stripePriceId.startsWith("prod_")) {
+        return res.status(400).json({
+          error: `Configuration Error: '${item.title}' has a Product ID (${item.stripePriceId}) instead of a Price ID. Please update the stripePriceId in Builder.io to start with 'price_'.`,
+        });
+      }
+    }
+
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],

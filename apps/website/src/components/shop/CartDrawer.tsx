@@ -29,12 +29,12 @@ export const CartDrawer = () => {
 
       if (!response.ok) throw new Error("Checkout failed");
 
-      const { sessionId } = await response.json();
-      const stripe = await getStripe();
+      const { url } = await response.json();
 
-      if (stripe) {
-        const { error } = await stripe.redirectToCheckout({ sessionId });
-        if (error) console.error("Stripe redirect error:", error);
+      if (url) {
+        window.location.href = url;
+      } else {
+        console.error("No checkout URL returned");
       }
     } catch (error) {
       console.error("Checkout error:", error);
