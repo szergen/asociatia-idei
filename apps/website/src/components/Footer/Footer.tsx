@@ -12,6 +12,12 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
 
   return (
     <>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="https://asociatia-idei.eu/img/banner_pnrr.jpg"
+        alt="PNRR: Fonduri pentru România modernă și reformată!"
+        style={{ width: "100%", height: "auto", display: "block" }}
+      />
       <footer
         className={`${footerStyles.footer} ${styles.footer} ${className}`}
       >
@@ -185,12 +191,6 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
           </div>
         </div>
       </footer>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="https://asociatia-idei.eu/img/banner_pnrr.jpg"
-        alt="PNRR: Fonduri pentru România modernă și reformată!"
-        style={{ width: "100%", height: "auto", display: "block" }}
-      />
     </>
   );
 };

@@ -2,20 +2,36 @@ import React from "react";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import { BuilderSection, BuilderSymbol, getBuilderPageData } from "../builder";
+import ProjectCard from "../components/ProjectCard";
 
 interface HomePageProps {
   heroSection?: any;
   aboutSection?: any;
   projectsSection?: any;
   testimonialsSection?: any;
+  featuredProjects?: any[];
 }
+
+const PLACEHOLDER_PROJECTS = [1, 2, 3].map((n) => ({
+  id: `placeholder-${n}`,
+  data: {
+    title: `Proiect ${n}`,
+    description: "Descrierea proiectului și impactul pe care îl are în comunitate.",
+    url: `/proiecte/proiect-${n}`,
+  },
+}));
 
 const HomePage: React.FC<HomePageProps> = ({
   heroSection,
   aboutSection,
   projectsSection,
   testimonialsSection,
+  featuredProjects = [],
 }) => {
+  const displayedProjects = [
+    ...featuredProjects.slice(0, 3),
+    ...PLACEHOLDER_PROJECTS,
+  ].slice(0, 3);
   return (
     <>
       <Head>
@@ -172,41 +188,8 @@ const HomePage: React.FC<HomePageProps> = ({
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[1, 2, 3].map((project) => (
-                <div
-                  key={project}
-                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
-                >
-                  <div className="h-48 bg-gradient-to-r from-blue-400 to-purple-500"></div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">
-                      Proiect {project}
-                    </h3>
-                    <p className="text-gray-600 mb-4">
-                      Descrierea proiectului și impactul pe care îl are în
-                      comunitate.
-                    </p>
-                    <a
-                      href={`/proiecte/proiect-${project}`}
-                      className="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center"
-                    >
-                      Citește mai mult
-                      <svg
-                        className="h-4 w-4 ml-1"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
+              {displayedProjects.map((project: any) => (
+                <ProjectCard key={project.id} project={project} />
               ))}
             </div>
             <div className="text-center mt-12">
@@ -260,23 +243,36 @@ const HomePage: React.FC<HomePageProps> = ({
 };
 
 export const getStaticProps: GetStaticProps = async ({ preview }) => {
+  const { builder } = await import("../builder");
+
   try {
-    // Fetch Builder.io content for different sections
-    const [heroSection, aboutSection, projectsSection, testimonialsSection] =
-      await Promise.all([
-        getBuilderPageData("section", "/homepage-hero", {
-          includeUnpublished: preview,
-        }),
-        getBuilderPageData("section", "/homepage-about", {
-          includeUnpublished: preview,
-        }),
-        getBuilderPageData("section", "/homepage-projects", {
-          includeUnpublished: preview,
-        }),
-        getBuilderPageData("section", "/homepage-testimonials", {
-          includeUnpublished: preview,
-        }),
-      ]);
+    const [
+      heroSection,
+      aboutSection,
+      projectsSection,
+      testimonialsSection,
+      projectPages,
+    ] = await Promise.all([
+      getBuilderPageData("section", "/homepage-hero", {
+        includeUnpublished: preview,
+      }),
+      getBuilderPageData("section", "/homepage-about", {
+        includeUnpublished: preview,
+      }),
+      getBuilderPageData("section", "/homepage-projects", {
+        includeUnpublished: preview,
+      }),
+      getBuilderPageData("section", "/homepage-testimonials", {
+        includeUnpublished: preview,
+      }),
+      builder.getAll("project-page", {
+        limit: 3,
+        options: {
+          includeRefs: true,
+          noTargeting: true,
+        },
+      }),
+    ]);
 
     return {
       props: {
@@ -284,8 +280,9 @@ export const getStaticProps: GetStaticProps = async ({ preview }) => {
         aboutSection: aboutSection || null,
         projectsSection: projectsSection || null,
         testimonialsSection: testimonialsSection || null,
+        featuredProjects: projectPages || [],
       },
-      revalidate: 60, // Revalidate every minute
+      revalidate: 60,
     };
   } catch (error) {
     console.error("Error fetching homepage content:", error);
@@ -295,6 +292,7 @@ export const getStaticProps: GetStaticProps = async ({ preview }) => {
         aboutSection: null,
         projectsSection: null,
         testimonialsSection: null,
+        featuredProjects: [],
       },
       revalidate: 60,
     };

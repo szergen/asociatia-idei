@@ -26,12 +26,14 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <div className={`${projectCardStyles.card} ${styles.card}`}>
-      {project.data.image && (
+      {project.data.image ? (
         <img
           src={project.data.image}
           alt={project.data.title}
           className={`${projectCardStyles.image} ${styles.card__image}`}
         />
+      ) : (
+        <div className={`${projectCardStyles.image} bg-gradient-to-r from-blue-400 to-purple-500`} />
       )}
       <div className={`${projectCardStyles.content} ${styles.card__content}`}>
         <div className={projectCardStyles.header}>
