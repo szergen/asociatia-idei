@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  npm:
+    image: jc21/nginx-proxy-manager:latest
+    container_name: jarvis_npm
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "81:81"
+      - "443:443"
+    volumes:
+      - ./npm/data:/data
+      - ./npm/letsencrypt:/etc/letsencrypt
+    networks:
+      - jarvis_network
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: jarvis_portainer
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - portainer_data:/data
+    networks:
+      - jarvis_network
+
+networks:
+  jarvis_network:
+    name: jarvis_network
+    driver: bridge
+
+volumes:
+  portainer_data:
