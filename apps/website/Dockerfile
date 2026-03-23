@@ -9,7 +9,7 @@ WORKDIR /app
 
 # Copy package management files
 COPY package.json package-lock.json* ./
-RUN npm ci
+RUN npm install
 
 # Stage 3: Build the application
 FROM base AS builder
