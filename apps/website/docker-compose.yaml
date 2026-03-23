@@ -1,10 +1,10 @@
-version: "3.8"
+version: '3.8'
 
 services:
   nextjs_staging:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: 
+      context: ../../
+      dockerfile: apps/website/Dockerfile
     container_name: asociatia_nextjs_staging
     restart: unless-stopped
     expose:
