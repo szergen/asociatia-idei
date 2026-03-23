@@ -12,6 +12,7 @@ const nextConfig = {
     // Enable if needed for better performance
     optimizeCss: true,
   },
+  output: "standalone",
 };
 
 module.exports = nextConfig;
